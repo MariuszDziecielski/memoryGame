@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css?family=Tillana:400,500,600,700,800&subset=latin-ext')
+$lightColor: #fff7cc
+body
+    font-family: 'Tillana', cursive
+    font-size: 14px
+    text-align: center
+    background: url(../images/1.jpg) no-repeat center/cover
+    background-attachment: fixed
+*
+    box-sizing: border-box
+.container
+    max-width: 1200px
+    margin: 0 auto
+.cards
+    .container
+        margin-top: 105px
+        button
+            font-family: 'Tillana', cursive
+            font-weight: 700
+            border: none
+            background: url(../images/6.png) no-repeat center/cover
+            color: #1a1600
+            height: 40px
+            width: 290px
+            margin: 20px 0
+            cursor: pointer
+            outline: none
+        .logo
+            display: flex
+            justify-content: center
+            flex-direction: column
+            height: 280px
+            background: url(../images/2.png) no-repeat center/contain
+            padding-bottom: 50px
+            h1
+                margin: 0
+                font-size: 37px
+                color: $lightColor
+            h2
+                margin: 0
+                font-size: 30px
+                color: #ffe866
+        #js-newGame
+            margin: 70px auto
+            display: flex
+            justify-content: center
+            flex-direction: column
+            align-items: center
+            background: url(../images/3.png) no-repeat center/contain
+            padding: 0 120px
+            width: 600px
+            height: 760px
+            h2
+                color: #fffbe6
+            p
+                color: #1a1600
+                font-weight: 700
+            h3
+                color: #fffbe6
+        #js-degree_of_difficulty
+            margin: 70px auto
+            display: flex
+            justify-content: center
+            flex-direction: column
+            align-items: center
+            background: url(../images/3.png) no-repeat center/contain
+            padding: 0 170px
+            width: 600px
+            height: 580px
+            color: #fffbe6
+            h2
+                color: #fffbe6
+                margin-bottom: 40px
+        #js-game_data
+            margin: 70px auto
+            display: flex
+            justify-content: center
+            flex-direction: column
+            align-items: center
+            padding: 0 120px
+            width: 600px
+            height: 260px
+            color: #fffbe6
+            background: url(../images/4.png) no-repeat center/contain
+            h3
+                margin: 0
+                span
+                    color: #ffe866
+                .warning
+                    color: red
+        #js-player_won,
+        #js-player_lost
+            margin: 70px auto
+            display: flex
+            justify-content: center
+            flex-direction: column
+            align-items: center
+            padding: 0 120px
+            width: 600px
+            height: 340px
+            color: #ffe866
+            background: url(../images/4.png) no-repeat center/contain
+            p
+                font-weight: 700
+        .cards_container
+            display: flex
+            justify-content: center
+            color: #fffbe6
+            margin: 0 auto
+            margin-bottom: 70px
+            flex-wrap: wrap
+            .card
+                display: flex
+                align-items: center
+                justify-content: center
+                margin: 5px
+                width: 54px
+                height: 76px
+                position: relative
+                a
+                    font-size: 20px
+                    .card_reverse
+                        background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/82px-Card_back_01.svg.png) no-repeat center/cover
+                        width: 54px
+                        height: 76px
+            .card_match
+                &:before
+                    content: url(../images/7.png)
+                    width: 40px
+                    height: 33px
+                    position: absolute
+                    top: 25%
+                    left: 50%
+                    transform: translateX(-50%)
+            .card_mismatch
+                &:before
+                    content: url(../images/8.png)
+                    width: 40px
+                    height: 33px
+                    position: absolute
+                    top: 25%
+                    left: 50%
+                    transform: translateX(-50%)
+            ._2c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/2_of_clubs.svg/83px-2_of_clubs.svg.png) no-repeat center/cover
+            ._3c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/3_of_clubs.svg/83px-3_of_clubs.svg.png) no-repeat center/cover
+            ._4c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/4_of_clubs.svg/83px-4_of_clubs.svg.png) no-repeat center/cover
+            ._5c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/5_of_clubs.svg/83px-5_of_clubs.svg.png) no-repeat center/cover
+            ._6c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/6_of_clubs.svg/83px-6_of_clubs.svg.png) no-repeat center/cover
+            ._7c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/7_of_clubs.svg/83px-7_of_clubs.svg.png) no-repeat center/cover
+            ._8c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/8_of_clubs.svg/83px-8_of_clubs.svg.png) no-repeat center/cover
+            ._9c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/9_of_clubs.svg/83px-9_of_clubs.svg.png) no-repeat center/cover
+            ._10c
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/10_of_clubs.svg/83px-10_of_clubs.svg.png) no-repeat center/cover
+            ._jc
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Jack_of_clubs2.svg/83px-Jack_of_clubs2.svg.png) no-repeat center/cover
+            ._qc
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_clubs2.svg/83px-Queen_of_clubs2.svg.png) no-repeat center/cover
+            ._kc
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/King_of_clubs2.svg/83px-King_of_clubs2.svg.png) no-repeat center/cover
+            ._ac
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ace_of_clubs.svg/83px-Ace_of_clubs.svg.png) no-repeat center/cover
+            ._2d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/2_of_diamonds.svg/83px-2_of_diamonds.svg.png) no-repeat center/cover
+            ._3d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/3_of_diamonds.svg/83px-3_of_diamonds.svg.png) no-repeat center/cover
+            ._4d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/4_of_diamonds.svg/83px-4_of_diamonds.svg.png) no-repeat center/cover
+            ._5d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/5_of_diamonds.svg/83px-5_of_diamonds.svg.png) no-repeat center/cover
+            ._6d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/6_of_diamonds.svg/83px-6_of_diamonds.svg.png) no-repeat center/cover
+            ._7d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/7_of_diamonds.svg/83px-7_of_diamonds.svg.png) no-repeat center/cover
+            ._8d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/8_of_diamonds.svg/83px-8_of_diamonds.svg.png) no-repeat center/cover
+            ._9d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/9_of_diamonds.svg/83px-9_of_diamonds.svg.png) no-repeat center/cover
+            ._10d
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/10_of_diamonds.svg/83px-10_of_diamonds.svg.png) no-repeat center/cover
+            ._jd
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Jack_of_diamonds2.svg/83px-Jack_of_diamonds2.svg.png) no-repeat center/cover
+            ._qd
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Queen_of_diamonds2.svg/83px-Queen_of_diamonds2.svg.png) no-repeat center/cover
+            ._kd
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/King_of_diamonds2.svg/83px-King_of_diamonds2.svg.png) no-repeat center/cover
+            ._ad
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ace_of_diamonds.svg/83px-Ace_of_diamonds.svg.png) no-repeat center/cover
+            ._2h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/2_of_hearts.svg/83px-2_of_hearts.svg.png) no-repeat center/cover
+            ._3h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/3_of_hearts.svg/83px-3_of_hearts.svg.png) no-repeat center/cover
+            ._4h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/4_of_hearts.svg/83px-4_of_hearts.svg.png) no-repeat center/cover
+            ._5h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/5_of_hearts.svg/83px-5_of_hearts.svg.png) no-repeat center/cover
+            ._6h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/6_of_hearts.svg/83px-6_of_hearts.svg.png) no-repeat center/cover
+            ._7h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/7_of_hearts.svg/83px-7_of_hearts.svg.png) no-repeat center/cover
+            ._8h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/8_of_hearts.svg/83px-8_of_hearts.svg.png) no-repeat center/cover
+            ._9h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/9_of_hearts.svg/83px-9_of_hearts.svg.png) no-repeat center/cover
+            ._10h
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/10_of_hearts.svg/83px-10_of_hearts.svg.png) no-repeat center/cover
+            ._jh
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jack_of_hearts2.svg/83px-Jack_of_hearts2.svg.png) no-repeat center/cover
+            ._qh
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Queen_of_hearts2.svg/83px-Queen_of_hearts2.svg.png) no-repeat center/cover
+            ._kh
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/King_of_hearts2.svg/83px-King_of_hearts2.svg.png) no-repeat center/cover
+            ._ah
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Ace_of_hearts.svg/83px-Ace_of_hearts.svg.png) no-repeat center/cover
+            ._2s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/2_of_spades.svg/83px-2_of_spades.svg.png) no-repeat center/cover
+            ._3s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/3_of_spades.svg/83px-3_of_spades.svg.png) no-repeat center/cover
+            ._4s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/4_of_spades.svg/83px-4_of_spades.svg.png) no-repeat center/cover
+            ._5s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/5_of_spades.svg/83px-5_of_spades.svg.png) no-repeat center/cover
+            ._6s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/6_of_spades.svg/83px-6_of_spades.svg.png) no-repeat center/cover
+            ._7s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/7_of_spades.svg/83px-7_of_spades.svg.png) no-repeat center/cover
+            ._8s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/8_of_spades.svg/83px-8_of_spades.svg.png) no-repeat center/cover
+            ._9s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/9_of_spades.svg/83px-9_of_spades.svg.png) no-repeat center/cover
+            ._10s
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/10_of_spades.svg/83px-10_of_spades.svg.png) no-repeat center/cover
+            ._js
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Jack_of_spades2.svg/83px-Jack_of_spades2.svg.png) no-repeat center/cover
+            ._qs
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_spades2.svg/83px-Queen_of_spades2.svg.png) no-repeat center/cover
+            ._ks
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/King_of_spades2.svg/83px-King_of_spades2.svg.png) no-repeat center/cover
+            ._as
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ace_of_spades2.svg/83px-Ace_of_spades2.svg.png) no-repeat center/cover
+            ._bj
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Black_joker.svg/83px-Black_joker.svg.png) no-repeat center/cover
+            ._rj
+                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Red_joker.svg/83px-Red_joker.svg.png) no-repeat center/cover
+        .easy
+            width: 500px
+        .medium
+            width: 600px
+        .hard
+            width: 700px
+        .extreme
+            width: 800px
+footer
+    .container
+        height: 112px
+        background: url(../images/5.png) no-repeat center/contain
+        padding-top: 40px
+        justify-content: center
+        display: flex
+        color: #fffbe6
+        margin-bottom: 105px
+/* Media queries */
+/* For computers: */
+@media (max-width: 992px)
+    .container
+        width: 100%
+    .cards
+        .container
+            .extreme
+                width: 100%
+                max-width: 800px
+/* For tablets: */
+@media (max-width: 768px)
+    .cards
+        .container
+            .logo
+                height: 250px
+                h1
+                    font-size: 34px
+                h2
+                    font-size: 27px
+            #js-newGame
+                padding: 0 80px
+                width: 470px
+                height: 640px
+                h2
+                    font-size: 1.2em
+                p
+                    font-size: 12px
+                h3
+                    font-size: 1em
+            #js-degree_of_difficulty
+                padding: 0 80px
+                width: 470px
+                height: 520px
+                h2
+                    font-size: 1.2em
+                    padding: 0 60px
+                button
+                    margin: 15px 0
+            #js-game_data
+                padding: 0 70px
+                width: 330px
+                height: 220px
+                h3
+                    font-size: 1em
+            #js-player_won,
+            #js-player_lost
+                padding: 0 70px
+                width: 440px
+                height: 340px
+                h2
+                    font-size: 1.2em
+                p
+                    font-size: 0.9em
+            .easy
+                width: 100%
+                max-width: 500px
+            .medium
+                width: 100%
+                max-width: 600px
+            .hard
+                width: 100%
+                max-width: 700px
+            .extreme
+                width: 100%
+                max-width: 800px
+/* For smart phones: */
+@media (max-width: 480px)
+    .cards
+        .container
+            margin-top: 24vw
+            button
+                font-size: 0.9em
+                max-height: 40px
+                max-width: 290px
+                height: 12vw
+                width: 90vw
+                margin: 15px 0
+            .logo
+                height: 60vw
+                max-height: 250px
+                padding-bottom: 14vw
+                h1
+                    font-size: 7vw
+                h2
+                    font-size: 6vw
+            #js-newGame
+                padding: 19vw 9vw
+                width: auto
+                height: 100%
+                margin: 10vw 0
+                background-size: cover
+                h2
+                    font-size: 1.1em
+                p
+                    font-size: 12px
+                h3
+                    font-size: 0.9em
+            #js-degree_of_difficulty
+                padding: 19vw 9vw
+                width: auto
+                height: 100%
+                margin: 10vw 0
+                background-size: cover
+                h2
+                    font-size: 1.1em
+                    padding: 0 20px
+            #js-game_data
+                padding: 19vw 9vw
+                width: auto
+                height: 100%
+                margin: 10vw 0
+                background-size: cover
+                h3
+                    font-size: 0.9em
+            #js-player_won,
+            #js-player_lost
+                padding: 19vw 9vw
+                width: auto
+                height: 100%
+                margin: 10vw 0
+                background-size: cover
+                h2
+                    font-size: 1.1em
+                p
+                    font-size: 0.86em
+    footer
+        .container
+            font-size: 0.86em
+            height: 35vw
+            max-width: 254px
+            min-width: 232px
+            padding-top: 15%
