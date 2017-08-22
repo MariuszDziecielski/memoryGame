@@ -11,7 +11,7 @@
     <body>
         <section class="cards">
             <div class="container">
-                <div class="logo">
+                <div class="logo flex content-center column">
                     <h1>
                         Match The Cards&reg;
                     </h1>
@@ -19,7 +19,7 @@
                         Memory Game
                     </h2>
                 </div>
-                <div id="js-newGame">
+                <div id="js-newGame" class="flex content-center column items-center">
                     <h2>Witaj w grze Match The Cards&reg;!</h2>
                     <p>Zasady gry są oparte na popularnej angielskiej grze Memory (zwanej również Concentration albo Pairs).</p>
                     <p>Gracz odsłania 2 karty - jeżeli są one identyczne to karty te zostają usunięte, jeżeli nie, to zostaną ponownie odwrócone (po kilku sekundach). Celem gry jest odnalezienie wszystkich par takich samych kart. Każda próba (odsłonięcie 2 kart) jest liczona. Gracz wygrywa, jeżeli odsłoni wszystkie pary zanim skończy się dozwolona liczba prób (różna w zależności od wybranego poziomu trudności).</p>
@@ -27,32 +27,32 @@
                     <h3>Życzę powodzenia!</h3>
                     <button type="button" id="js-newGameBtn">Rozpocznij nową grę!</button>
                 </div>
-                <div id="js-degree_of_difficulty">
+                <div id="js-degree_of_difficulty" class="flex content-center column items-center">
                     <h2>Wybierz poziom trudności gry</h2>
                     <button type="button" id="js-easyLevel" title="Poziom łatwy (1 kolor - trefl)">Poziom łatwy</button>
                     <button type="button" id="js-mediumLevel" title="Poziom średni (2 kolory - trefl i karo)">Poziom średni</button>
                     <button type="button" id="js-hardLevel" title="Poziom trudny (3 kolory - trefl, karo i kier)">Poziom trudny</button>
                     <button type="button" id="js-extremeLevel" title="Poziom ekstremalny (4 kolory - trefl, karo, kier i pik oraz 2 dżokery)">Poziom ekstremalny</button>
                 </div>
-                <div id="js-game_data">
+                <div id="js-game_data" class="flex content-center column items-center">
                     <h3>Poziom trudności: <span id="js-game_level"></span></h3>
                     <h3>Pozostało par: <span id="js-pairs_left"></span></h3>
                     <h3>Odkryte pary: <span id="js-pairs_found">0</span></h3>
                     <h3>Liczba prób: <span id="js-attempts_done">0</span> / <span id="js-attempts_left"></span>
                     </h3>
                 </div>
-                <div id="js-player_won">
+                <div id="js-player_won" class="flex content-center column items-center">
                     <h2>Gratulacje! Udało Ci się odkryć wszystkie pary i wygrałeś!</h2>
                     <p>Twoja pamięć jest wyśmienita!</p>
                     <button type="button" class="js-playAgainBtn">Zagraj jeszcze raz!</button>
                 </div>
-                <div id="js-player_lost">
+                <div id="js-player_lost" class="flex content-center column items-center">
                     <h2>Niestety nie udało Ci się odkryć wszystkich par i przegrałeś!</h2>
                     <p>Musisz jeszcze trochę poćwiczyć swoją pamięć!</p>
                     <button type="button" class="js-playAgainBtn">Zagraj jeszcze raz!</button>
                 </div>
-                <div class="cards_container">
-                    <!--    Poziom: łatwy -->
+                <div class="cards_container flex content-center">
+                    <!-- Easy level -->
                     <div class="card _2c easy_level">
                         <a href="" class="_2c_">
                             <div class="card_reverse"></div>
@@ -183,7 +183,7 @@
                             <div class="card_reverse"></div>
                         </a>
                     </div>
-                    <!--    Poziom: medium -->
+                    <!-- Medium level -->
                     <div class="card _2d medium_level">
                         <a href="" class="_2d_">
                             <div class="card_reverse"></div>
@@ -314,7 +314,7 @@
                             <div class="card_reverse"></div>
                         </a>
                     </div>
-                    <!--    Poziom: hard_   -->
+                    <!-- Hard level -->
                     <div class="card _2h hard_level">
                         <a href="" class="_2h_">
                             <div class="card_reverse"></div>
@@ -445,7 +445,7 @@
                             <div class="card_reverse"></div>
                         </a>
                     </div>
-                    <!--    Poziom: extreme   -->
+                    <!-- Extreme level -->
                     <div class="card _2s extreme_level">
                         <a href="" class="_2s_">
                             <div class="card_reverse"></div>
@@ -601,7 +601,7 @@
             </div>
         </section>
         <footer>
-            <div class="container">
+            <div class="container flex content-center">
                 <div class="copyright">
                     Copyright &copy; 2017 Mariusz Dzięcielski
                 </div>

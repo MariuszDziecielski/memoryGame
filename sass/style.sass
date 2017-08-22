@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Tillana:400,500,600,700,800&subset=latin-ext')
-$lightColor: #fff7cc
+$primFont: 'Tillana', cursive
 body
-    font-family: 'Tillana', cursive
-    font-size: 14px
+    font: normal 14px $primFont
     text-align: center
-    background: url(../images/1.jpg) no-repeat center/cover
-    background-attachment: fixed
+    background: url(../images/1.jpg) no-repeat fixed center/cover
 *
     box-sizing: border-box
+.flex
+    display: -webkit-flex
+    display: flex
+.column
+    -webkit-flex-direction: column
+    flex-direction: column
+.items-center
+    -webkit-align-items: center
+    align-items: center
+.content-center
+    -webkit-justify-content: center
+    justify-content: center
 .container
     max-width: 1200px
     margin: 0 auto
@@ -15,8 +25,7 @@ body
     .container
         margin-top: 105px
         button
-            font-family: 'Tillana', cursive
-            font-weight: 700
+            font: 700 13px $primFont
             border: none
             background: url(../images/6.png) no-repeat center/cover
             color: #1a1600
@@ -26,29 +35,24 @@ body
             cursor: pointer
             outline: none
         .logo
-            display: flex
-            justify-content: center
-            flex-direction: column
             height: 280px
             background: url(../images/2.png) no-repeat center/contain
             padding-bottom: 50px
             h1
                 margin: 0
                 font-size: 37px
-                color: $lightColor
+                color: #fff7cc
             h2
                 margin: 0
                 font-size: 30px
                 color: #ffe866
-        #js-newGame
+        #js-newGame,
+        #js-degree_of_difficulty
             margin: 70px auto
-            display: flex
-            justify-content: center
-            flex-direction: column
-            align-items: center
             background: url(../images/3.png) no-repeat center/contain
-            padding: 0 120px
             width: 600px
+        #js-newGame
+            padding: 0 120px
             height: 760px
             h2
                 color: #fffbe6
@@ -58,30 +62,22 @@ body
             h3
                 color: #fffbe6
         #js-degree_of_difficulty
-            margin: 70px auto
-            display: flex
-            justify-content: center
-            flex-direction: column
-            align-items: center
-            background: url(../images/3.png) no-repeat center/contain
             padding: 0 170px
-            width: 600px
             height: 580px
             color: #fffbe6
             h2
                 color: #fffbe6
                 margin-bottom: 40px
-        #js-game_data
+        #js-game_data,
+        #js-player_won,
+        #js-player_lost
             margin: 70px auto
-            display: flex
-            justify-content: center
-            flex-direction: column
-            align-items: center
             padding: 0 120px
             width: 600px
+            background: url(../images/4.png) no-repeat center/contain
+        #js-game_data
             height: 260px
             color: #fffbe6
-            background: url(../images/4.png) no-repeat center/contain
             h3
                 margin: 0
                 span
@@ -90,24 +86,13 @@ body
                     color: red
         #js-player_won,
         #js-player_lost
-            margin: 70px auto
-            display: flex
-            justify-content: center
-            flex-direction: column
-            align-items: center
-            padding: 0 120px
-            width: 600px
             height: 340px
             color: #ffe866
-            background: url(../images/4.png) no-repeat center/contain
             p
                 font-weight: 700
         .cards_container
-            display: flex
-            justify-content: center
             color: #fffbe6
-            margin: 0 auto
-            margin-bottom: 70px
+            margin: 0 auto 70px
             flex-wrap: wrap
             .card
                 display: flex
@@ -123,24 +108,21 @@ body
                         background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/82px-Card_back_01.svg.png) no-repeat center/cover
                         width: 54px
                         height: 76px
+            .card_match,
+            .card_mismatch
+                &:before
+                    width: 40px
+                    height: 33px
+                    position: absolute
+                    top: 25%
+                    left: 50%
+                    transform: translateX(-50%)
             .card_match
                 &:before
                     content: url(../images/7.png)
-                    width: 40px
-                    height: 33px
-                    position: absolute
-                    top: 25%
-                    left: 50%
-                    transform: translateX(-50%)
             .card_mismatch
                 &:before
                     content: url(../images/8.png)
-                    width: 40px
-                    height: 33px
-                    position: absolute
-                    top: 25%
-                    left: 50%
-                    transform: translateX(-50%)
             ._2c
                 background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/2_of_clubs.svg/83px-2_of_clubs.svg.png) no-repeat center/cover
             ._3c
@@ -262,8 +244,6 @@ footer
         height: 112px
         background: url(../images/5.png) no-repeat center/contain
         padding-top: 40px
-        justify-content: center
-        display: flex
         color: #fffbe6
         margin-bottom: 105px
 /* Media queries */
@@ -286,9 +266,11 @@ footer
                     font-size: 34px
                 h2
                     font-size: 27px
-            #js-newGame
+            #js-newGame,
+            #js-degree_of_difficulty
                 padding: 0 80px
                 width: 470px
+            #js-newGame
                 height: 640px
                 h2
                     font-size: 1.2em
@@ -297,8 +279,6 @@ footer
                 h3
                     font-size: 1em
             #js-degree_of_difficulty
-                padding: 0 80px
-                width: 470px
                 height: 520px
                 h2
                     font-size: 1.2em
@@ -320,17 +300,18 @@ footer
                     font-size: 1.2em
                 p
                     font-size: 0.9em
-            .easy
-                width: 100%
-                max-width: 500px
-            .medium
-                width: 100%
-                max-width: 600px
-            .hard
-                width: 100%
-                max-width: 700px
+            .easy,
+            .medium,
+            .hard,
             .extreme
                 width: 100%
+            .easy
+                max-width: 500px
+            .medium
+                max-width: 600px
+            .hard
+                max-width: 700px
+            .extreme
                 max-width: 800px
 /* For smart phones: */
 @media (max-width: 480px)
@@ -352,35 +333,9 @@ footer
                     font-size: 7vw
                 h2
                     font-size: 6vw
-            #js-newGame
-                padding: 19vw 9vw
-                width: auto
-                height: 100%
-                margin: 10vw 0
-                background-size: cover
-                h2
-                    font-size: 1.1em
-                p
-                    font-size: 12px
-                h3
-                    font-size: 0.9em
-            #js-degree_of_difficulty
-                padding: 19vw 9vw
-                width: auto
-                height: 100%
-                margin: 10vw 0
-                background-size: cover
-                h2
-                    font-size: 1.1em
-                    padding: 0 20px
-            #js-game_data
-                padding: 19vw 9vw
-                width: auto
-                height: 100%
-                margin: 10vw 0
-                background-size: cover
-                h3
-                    font-size: 0.9em
+            #js-newGame,
+            #js-degree_of_difficulty,
+            #js-game_data,
             #js-player_won,
             #js-player_lost
                 padding: 19vw 9vw
@@ -388,6 +343,22 @@ footer
                 height: 100%
                 margin: 10vw 0
                 background-size: cover
+            #js-newGame
+                h2
+                    font-size: 1.1em
+                p
+                    font-size: 12px
+                h3
+                    font-size: 0.9em
+            #js-degree_of_difficulty
+                h2
+                    font-size: 1.1em
+                    padding: 0 20px
+            #js-game_data
+                h3
+                    font-size: 0.9em
+            #js-player_won,
+            #js-player_lost
                 h2
                     font-size: 1.1em
                 p

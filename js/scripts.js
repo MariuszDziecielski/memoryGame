@@ -103,7 +103,7 @@ $(function () {
             if ($firstCardLink.attr("class") == $secondCardLink.attr("class")) {
                 setTimeout(function () {
                     $twoCards.addClass("card_match");
-                }, 1500);
+                }, 500);
                 setTimeout(function () {
                     $twoCards.removeClass("card_match").css("visibility", "hidden");
                     changeCardReverseVisibility("hidden", "hidden");
@@ -113,25 +113,25 @@ $(function () {
                     $pairsFoundElement.text(pairsFound);
                     setAttemptsDone();
                     checkGameStatus();
-                }, 3000);
+                }, 800);
                 restoreDefaults();
                 setTimeout(function () {
                     $links.on("click", revealCard).css("cursor", "pointer").parent().attr("title", "Odkryj kartę!");
-                }, 3300);
+                }, 850);
             } else {
                 setTimeout(function () {
                     $twoCards.addClass("card_mismatch");
-                }, 1500);
+                }, 500);
                 setTimeout(function () {
                     $twoCards.removeClass("card_mismatch");
                     changeCardReverseVisibility("visible", "visible");
                     setAttemptsDone();
                     checkGameStatus();
-                }, 3000);
+                }, 800);
                 restoreDefaults();
                 setTimeout(function () {
                     $links.on("click", revealCard).css("cursor", "pointer").parent().attr("title", "Odkryj kartę!");
-                }, 3300);
+                }, 850);
             }
         }
     }
