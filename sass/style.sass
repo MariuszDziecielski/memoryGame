@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Tillana:400,500,600,700,800&subset=latin-ext')
 $primFont: 'Tillana', cursive
+$blackColor: #1a1600
+$yellowColor: #ffe866
+$lightYellowColor: #fffbe6
+=dimensions($width, $height)
+    width: $width
+    height: $height
+=max-dimensions($max-width, $max-height)
+    max-width: $max-width
+    max-height: $max-height
 body
     font: normal 14px $primFont
     text-align: center
@@ -28,9 +37,8 @@ body
             font: 700 13px $primFont
             border: none
             background: url(../images/6.png) no-repeat center/cover
-            color: #1a1600
-            height: 40px
-            width: 290px
+            color: $blackColor
+            +dimensions(290px, 40px)
             margin: 20px 0
             cursor: pointer
             outline: none
@@ -45,7 +53,7 @@ body
             h2
                 margin: 0
                 font-size: 30px
-                color: #ffe866
+                color: $yellowColor
         #js-newGame,
         #js-degree_of_difficulty
             margin: 70px auto
@@ -55,18 +63,18 @@ body
             padding: 0 120px
             height: 760px
             h2
-                color: #fffbe6
+                color: $lightYellowColor
             p
-                color: #1a1600
+                color: $blackColor
                 font-weight: 700
             h3
-                color: #fffbe6
+                color: $lightYellowColor
         #js-degree_of_difficulty
             padding: 0 170px
             height: 580px
-            color: #fffbe6
+            color: $lightYellowColor
             h2
-                color: #fffbe6
+                color: $lightYellowColor
                 margin-bottom: 40px
         #js-game_data,
         #js-player_won,
@@ -77,21 +85,21 @@ body
             background: url(../images/4.png) no-repeat center/contain
         #js-game_data
             height: 260px
-            color: #fffbe6
+            color: $lightYellowColor
             h3
                 margin: 0
                 span
-                    color: #ffe866
+                    color: $yellowColor
                 .warning
-                    color: red
+                    color: #ff3300
         #js-player_won,
         #js-player_lost
             height: 340px
-            color: #ffe866
+            color: $yellowColor
             p
                 font-weight: 700
         .cards_container
-            color: #fffbe6
+            color: $lightYellowColor
             margin: 0 auto 70px
             flex-wrap: wrap
             .card
@@ -99,20 +107,17 @@ body
                 align-items: center
                 justify-content: center
                 margin: 5px
-                width: 54px
-                height: 76px
+                +dimensions(54px, 76px)
                 position: relative
                 a
                     font-size: 20px
                     .card_reverse
                         background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Card_back_01.svg/82px-Card_back_01.svg.png) no-repeat center/cover
-                        width: 54px
-                        height: 76px
+                        +dimensions(54px, 76px)
             .card_match,
             .card_mismatch
                 &:before
-                    width: 40px
-                    height: 33px
+                    +dimensions(40px, 33px)
                     position: absolute
                     top: 25%
                     left: 50%
@@ -244,7 +249,7 @@ footer
         height: 112px
         background: url(../images/5.png) no-repeat center/contain
         padding-top: 40px
-        color: #fffbe6
+        color: $lightYellowColor
         margin-bottom: 105px
 /* Media queries */
 /* For computers: */
@@ -287,15 +292,13 @@ footer
                     margin: 15px 0
             #js-game_data
                 padding: 0 70px
-                width: 330px
-                height: 220px
+                +dimensions(330px, 220px)
                 h3
                     font-size: 1em
             #js-player_won,
             #js-player_lost
                 padding: 0 70px
-                width: 440px
-                height: 340px
+                +dimensions(440px, 340px)
                 h2
                     font-size: 1.2em
                 p
@@ -320,10 +323,8 @@ footer
             margin-top: 24vw
             button
                 font-size: 0.9em
-                max-height: 40px
-                max-width: 290px
-                height: 12vw
-                width: 90vw
+                +max-dimensions(290px, 40px)
+                +dimensions(90vw, 12vw)
                 margin: 15px 0
             .logo
                 height: 60vw
@@ -339,8 +340,7 @@ footer
             #js-player_won,
             #js-player_lost
                 padding: 19vw 9vw
-                width: auto
-                height: 100%
+                +dimensions(auto, 100%)
                 margin: 10vw 0
                 background-size: cover
             #js-newGame
@@ -367,6 +367,5 @@ footer
         .container
             font-size: 0.86em
             height: 35vw
-            max-width: 254px
-            min-width: 232px
+            +max-dimensions(254px, 232px)
             padding-top: 15%
