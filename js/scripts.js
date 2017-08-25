@@ -21,7 +21,8 @@ $(function () {
         $pairsLeftElement = $("#js-pairs_left"),
         $pairsFoundElement = $("#js-pairs_found"),
         $attemptsDoneElement = $("#js-attempts_done"),
-        $attemptsLeftElement = $("#js-attempts_left");
+        $attemptsLeftElement = $("#js-attempts_left"),
+        cardReverseImages = ['card_back_01', 'card_back_02', 'card_back_03', 'card_back_04', 'card_back_05', 'card_back_06', 'card_back_07', 'card_back_08', 'card_back_09', 'card_back_10', 'card_back_11'];
     let selectedCards = 0,
         $cards = $cardsContainer.children(),
         gameState,
@@ -35,6 +36,10 @@ $(function () {
         pairsFound = 0,
         attemptsDone = 0,
         attemptsLeft;
+    function setCardReverseImage() {
+        const cardReverseImage = cardReverseImages[Math.floor(Math.random() * 11)];
+        $(".card_reverse").css("background", "url(images/" + cardReverseImage + ".png) no-repeat center/cover");
+    }
     function setGameElements() {
         $newGameElement.show();
         $degreeOfDifficultyElement.add($gameDataElement).add($playerWonElement).add($playerLostElement).add($cardsContainer).add($cards).add($finishGameBtn).hide();
@@ -164,6 +169,7 @@ $(function () {
         $cardsContainer.fadeIn();
         $cards.hide();
         shuffleCards();
+        setCardReverseImage();
         cards.attr("title", "Odkryj kartę!").add($finishGameBtn).add($gameDataElement).fadeIn();
         switch(degreeOfDifficulty) {
             case "easy":
