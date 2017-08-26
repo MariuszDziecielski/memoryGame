@@ -46,6 +46,8 @@ $(function () {
         switch (gameState) {
             case 'started':
                 $newGameElement.hide();
+                $(".card").css("background-image", "none");
+                setCardReverseImage();
                 $degreeOfDifficultyElement.css('display', 'flex');
                 break;
             case 'ended':
@@ -169,8 +171,9 @@ $(function () {
         $cardsContainer.fadeIn();
         $cards.hide();
         shuffleCards();
-        setCardReverseImage();
-        cards.attr("title", "Odkryj kartę!").add($finishGameBtn).add($gameDataElement).fadeIn();
+        cards.attr("title", "Odkryj kartę!").add($finishGameBtn).add($gameDataElement).fadeIn(500, function(){
+            cards.removeAttr("style");
+        });
         switch(degreeOfDifficulty) {
             case "easy":
                 $gameLevelElement.text("łatwy");
