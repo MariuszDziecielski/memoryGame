@@ -70,6 +70,7 @@ $(function () {
         }
     }
     function addCardClass(element, cardClass) {
+        $(element).parent().removeAttr("style");
         $(element).find(".card_reverse").css("visibility", "hidden");
         $(element).parent().addClass(cardClass);
         selectedCards ++;
@@ -171,9 +172,7 @@ $(function () {
         $cardsContainer.fadeIn();
         $cards.hide();
         shuffleCards();
-        cards.attr("title", "Odkryj kartę!").add($finishGameBtn).add($gameDataElement).fadeIn(500, function(){
-            cards.removeAttr("style");
-        });
+        cards.attr("title", "Odkryj kartę!").add($finishGameBtn).add($gameDataElement).fadeIn();
         switch(degreeOfDifficulty) {
             case "easy":
                 $gameLevelElement.text("łatwy");
