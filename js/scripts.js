@@ -209,15 +209,15 @@ $(function () {
     });
     $links.on("click", revealCard);
     $easyLevelButton.click(function () {
-        beginGame("easy", 13, 39, "easy", $cardsEasyLevel);
+        beginGame("easy", 13, Math.floor(13*2.5), "easy", $cardsEasyLevel);
     });
     $mediumLevelButton.click(function () {
-        beginGame("medium", 26, 78, "medium", $cardsEasyLevel.add($cardsMediumLevel));
+        beginGame("medium", 26, Math.floor(26*3.4), "medium", $cardsEasyLevel.add($cardsMediumLevel));
     });
     $hardLevelButton.click(function () {
-        beginGame("hard", 39, 117, "hard", $cardsEasyLevel.add($cardsMediumLevel).add($cardsHardLevel));
+        beginGame("hard", 39, Math.floor(39*4.3), "hard", $cardsEasyLevel.add($cardsMediumLevel).add($cardsHardLevel));
     });
     $extremeLevelButton.click(function () {
-        beginGame("extreme", 54, 162, "extreme", $cardsEasyLevel.add($cardsMediumLevel).add($cardsHardLevel).add($cardsExtremeLevel));
+        beginGame("extreme", 54, Math.floor(39*5.2), "extreme", $cardsEasyLevel.add($cardsMediumLevel).add($cardsHardLevel).add($cardsExtremeLevel));
     });
 });
