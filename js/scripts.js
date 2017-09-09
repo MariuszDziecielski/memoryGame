@@ -24,16 +24,16 @@ $(function () {
         this.$playAgainBtn = $('.js-playAgainBtn');
         this.$finishGameBtn = $(".js-finishGameBtn");
         this.$easyLevelButton.click(() => {
-            this.beginGame("easy", 13, Math.floor(13*2.5), "easy", gameCards.$cardsEasyLevel);
+            this.beginGame("easy", 13, Math.floor(13 * 2.5), "easy", gameCards.$cardsEasyLevel);
         });
         this.$mediumLevelButton.click(() => {
-            this.beginGame("medium", 26, Math.floor(26*3.4), "medium", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel));
+            this.beginGame("medium", 26, Math.floor(26 * 3.4), "medium", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel));
         });
         this.$hardLevelButton.click(() => {
-            this.beginGame("hard", 39, Math.floor(39*4.3), "hard", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel));
+            this.beginGame("hard", 39, Math.floor(39 * 4.3), "hard", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel));
         });
         this.$extremeLevelButton.click(() => {
-            this.beginGame("extreme", 54, Math.floor(39*5.2), "extreme", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel).add(gameCards.$cardsExtremeLevel));
+            this.beginGame("extreme", 54, Math.floor(39 * 5.2), "extreme", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel).add(gameCards.$cardsExtremeLevel));
         });
     }
     Game.prototype = {
@@ -68,7 +68,7 @@ $(function () {
         setAttemptsDone: function () {
             this.attemptsDone ++;
             this.$attemptsDoneElement.text(this.attemptsDone);
-            if((this.attemptsLeft - this.attemptsDone)==3) {
+            if((this.attemptsLeft - this.attemptsDone) == 3) {
                 this.$attemptsDoneElement.addClass("warning");
             }
         },
@@ -123,7 +123,7 @@ $(function () {
     GameCards.prototype = {
         setCardReverseImage: function () {
             const cardReverseImage = this.cardReverseImages[Math.floor(Math.random() * 11)];
-            $(".card_reverse").css("background", "url(images/" + cardReverseImage + ".png) no-repeat center/cover");
+            $(".card_reverse").css("background", `url(images/${cardReverseImage}.png) no-repeat center/cover`);
         },
         shuffleCards: function () {
             while (this.$cards.length) {
@@ -166,10 +166,10 @@ $(function () {
                 gameCards.$firstCardLink = $firstCard.find("a");
                 gameCards.$secondCardLink = $secondCard.find("a");
                 if (gameCards.$firstCardLink.attr("class") == gameCards.$secondCardLink.attr("class")) {
-                    setTimeout(function () {
+                    setTimeout(() => {
                         $twoCards.addClass("card_match");
                     }, 500);
-                    setTimeout(function () {
+                    setTimeout(() => {
                         $twoCards.removeClass("card_match").css("visibility", "hidden");
                         gameCards.changeCardReverseVisibility("hidden", "hidden");
                         game.pairsLeft --;
@@ -180,21 +180,21 @@ $(function () {
                         game.checkGameStatus();
                     }, 800);
                     gameCards.removeSelectedCardsClasses();
-                    setTimeout(function () {
+                    setTimeout(() => {
                         gameCards.$links.on("click", gameCards.revealCard).css("cursor", "pointer").parent().attr("title", "Odkryj kartę!");
                     }, 850);
                 } else {
-                    setTimeout(function () {
+                    setTimeout(() => {
                         $twoCards.addClass("card_mismatch");
                     }, 500);
-                    setTimeout(function () {
+                    setTimeout(() => {
                         $twoCards.removeClass("card_mismatch");
                         gameCards.changeCardReverseVisibility("visible", "visible");
                         game.setAttemptsDone();
                         game.checkGameStatus();
                     }, 800);
                     gameCards.removeSelectedCardsClasses();
-                    setTimeout(function () {
+                    setTimeout(() => {
                         gameCards.$links.on("click", gameCards.revealCard).css("cursor", "pointer").parent().attr("title", "Odkryj kartę!");
                     }, 850);
                 }
@@ -222,7 +222,7 @@ $(function () {
             }
             game.$pairsLeftElement.text(game.pairsLeft);
             game.$attemptsLeftElement.text(game.attemptsLeft);
-            game.$finishGameBtn.click(function () {
+            game.$finishGameBtn.click(() => {
                 game.gameState = "ended";
                 game.setGameElements();
             });
