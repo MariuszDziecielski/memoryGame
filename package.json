@@ -2,7 +2,7 @@
   "name": "memoryGame",
   "version": "1.0.0",
   "description": "Memory Game",
-  "main": "js/scripts.js",
+  "main": "js/Game.js",
   "scripts": {
     "test": "test"
   },
