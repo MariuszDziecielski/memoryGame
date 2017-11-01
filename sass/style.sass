@@ -27,344 +27,340 @@ body
 .content-center
     -webkit-justify-content: center
     justify-content: center
-.container
+.cards,
+footer
     max-width: 1200px
     margin: 0 auto
 .cards
-    .container
-        margin-top: 105px
-        button
-            font: 700 13px $primFont
-            border: none
-            background: url(../images/rail.png) no-repeat center/cover
-            color: $blackColor
-            +dimensions(290px, 40px)
-            margin: 20px 0
-            cursor: pointer
-            outline: none
-        .logo
-            height: 280px
-            background: url(../images/wooden_sign.png) no-repeat center/contain
-            padding-bottom: 50px
-            h1
-                margin: 0
-                font-size: 37px
-                color: #fff7cc
-            h2
-                margin: 0
-                font-size: 30px
-                color: $yellowColor
-        #js-newGame,
-        #js-degree_of_difficulty
-            margin: 70px auto
-            background: url(../images/old_paper_vertical.png) no-repeat center/contain
-            width: 600px
-        #js-newGame
-            padding: 0 120px
-            height: 760px
-            h2
-                color: $lightYellowColor
-            p
-                color: $blackColor
-                font-weight: 700
-            h3
-                color: $lightYellowColor
-        #js-degree_of_difficulty
-            padding: 0 170px
-            height: 580px
-            color: $lightYellowColor
-            h2
-                color: $lightYellowColor
-                margin-bottom: 40px
-        #js-game_data,
-        #js-player_won,
-        #js-player_lost
-            margin: 70px auto
-            padding: 0 120px
-            width: 600px
-            background: url(../images/old_paper_horizontal.png) no-repeat center/contain
-        #js-game_data
-            height: 260px
-            color: $lightYellowColor
-            h3
-                margin: 0
-                span
-                    color: $yellowColor
-                .warning
-                    color: #ff3300
-        #js-player_won,
-        #js-player_lost
-            height: 340px
+    margin-top: 105px
+    button
+        font: 700 13px $primFont
+        border: none
+        background: url(../images/rail.png) no-repeat center/cover
+        color: $blackColor
+        +dimensions(290px, 40px)
+        margin: 20px 0
+        cursor: pointer
+        outline: none
+    .logo
+        height: 280px
+        background: url(../images/wooden_sign.png) no-repeat center/contain
+        padding-bottom: 50px
+        h1
+            margin: 0
+            font-size: 37px
+            color: #fff7cc
+        h2
+            margin: 0
+            font-size: 30px
             color: $yellowColor
-            p
-                font-weight: 700
-        .cards_container
+    #js-newGame,
+    #js-degree_of_difficulty
+        margin: 70px auto
+        background: url(../images/old_paper_vertical.png) no-repeat center/contain
+        width: 600px
+    #js-newGame
+        padding: 0 120px
+        height: 760px
+        h2
             color: $lightYellowColor
-            margin: 0 auto 70px
-            flex-wrap: wrap
-            .card
-                display: flex
-                align-items: center
-                justify-content: center
-                margin: 5px
-                +dimensions(54px, 76px)
-                position: relative
-                a
-                    font-size: 20px
-                    .card_reverse
-                        +dimensions(54px, 76px)
-            .card_match,
-            .card_mismatch
-                &:before
-                    +dimensions(40px, 33px)
-                    position: absolute
-                    top: 25%
-                    left: 50%
-                    transform: translateX(-50%)
-            .card_match
-                &:before
-                    content: url(../images/yes_sign.png)
-            .card_mismatch
-                &:before
-                    content: url(../images/no_sign.png)
-            ._2c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/2_of_clubs.svg/83px-2_of_clubs.svg.png) no-repeat center/cover
-            ._3c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/3_of_clubs.svg/83px-3_of_clubs.svg.png) no-repeat center/cover
-            ._4c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/4_of_clubs.svg/83px-4_of_clubs.svg.png) no-repeat center/cover
-            ._5c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/5_of_clubs.svg/83px-5_of_clubs.svg.png) no-repeat center/cover
-            ._6c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/6_of_clubs.svg/83px-6_of_clubs.svg.png) no-repeat center/cover
-            ._7c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/7_of_clubs.svg/83px-7_of_clubs.svg.png) no-repeat center/cover
-            ._8c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/8_of_clubs.svg/83px-8_of_clubs.svg.png) no-repeat center/cover
-            ._9c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/9_of_clubs.svg/83px-9_of_clubs.svg.png) no-repeat center/cover
-            ._10c
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/10_of_clubs.svg/83px-10_of_clubs.svg.png) no-repeat center/cover
-            ._jc
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Jack_of_clubs2.svg/83px-Jack_of_clubs2.svg.png) no-repeat center/cover
-            ._qc
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_clubs2.svg/83px-Queen_of_clubs2.svg.png) no-repeat center/cover
-            ._kc
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/King_of_clubs2.svg/83px-King_of_clubs2.svg.png) no-repeat center/cover
-            ._ac
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ace_of_clubs.svg/83px-Ace_of_clubs.svg.png) no-repeat center/cover
-            ._2d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/2_of_diamonds.svg/83px-2_of_diamonds.svg.png) no-repeat center/cover
-            ._3d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/3_of_diamonds.svg/83px-3_of_diamonds.svg.png) no-repeat center/cover
-            ._4d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/4_of_diamonds.svg/83px-4_of_diamonds.svg.png) no-repeat center/cover
-            ._5d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/5_of_diamonds.svg/83px-5_of_diamonds.svg.png) no-repeat center/cover
-            ._6d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/6_of_diamonds.svg/83px-6_of_diamonds.svg.png) no-repeat center/cover
-            ._7d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/7_of_diamonds.svg/83px-7_of_diamonds.svg.png) no-repeat center/cover
-            ._8d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/8_of_diamonds.svg/83px-8_of_diamonds.svg.png) no-repeat center/cover
-            ._9d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/9_of_diamonds.svg/83px-9_of_diamonds.svg.png) no-repeat center/cover
-            ._10d
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/10_of_diamonds.svg/83px-10_of_diamonds.svg.png) no-repeat center/cover
-            ._jd
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Jack_of_diamonds2.svg/83px-Jack_of_diamonds2.svg.png) no-repeat center/cover
-            ._qd
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Queen_of_diamonds2.svg/83px-Queen_of_diamonds2.svg.png) no-repeat center/cover
-            ._kd
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/King_of_diamonds2.svg/83px-King_of_diamonds2.svg.png) no-repeat center/cover
-            ._ad
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ace_of_diamonds.svg/83px-Ace_of_diamonds.svg.png) no-repeat center/cover
-            ._2h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/2_of_hearts.svg/83px-2_of_hearts.svg.png) no-repeat center/cover
-            ._3h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/3_of_hearts.svg/83px-3_of_hearts.svg.png) no-repeat center/cover
-            ._4h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/4_of_hearts.svg/83px-4_of_hearts.svg.png) no-repeat center/cover
-            ._5h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/5_of_hearts.svg/83px-5_of_hearts.svg.png) no-repeat center/cover
-            ._6h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/6_of_hearts.svg/83px-6_of_hearts.svg.png) no-repeat center/cover
-            ._7h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/7_of_hearts.svg/83px-7_of_hearts.svg.png) no-repeat center/cover
-            ._8h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/8_of_hearts.svg/83px-8_of_hearts.svg.png) no-repeat center/cover
-            ._9h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/9_of_hearts.svg/83px-9_of_hearts.svg.png) no-repeat center/cover
-            ._10h
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/10_of_hearts.svg/83px-10_of_hearts.svg.png) no-repeat center/cover
-            ._jh
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jack_of_hearts2.svg/83px-Jack_of_hearts2.svg.png) no-repeat center/cover
-            ._qh
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Queen_of_hearts2.svg/83px-Queen_of_hearts2.svg.png) no-repeat center/cover
-            ._kh
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/King_of_hearts2.svg/83px-King_of_hearts2.svg.png) no-repeat center/cover
-            ._ah
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Ace_of_hearts.svg/83px-Ace_of_hearts.svg.png) no-repeat center/cover
-            ._2s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/2_of_spades.svg/83px-2_of_spades.svg.png) no-repeat center/cover
-            ._3s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/3_of_spades.svg/83px-3_of_spades.svg.png) no-repeat center/cover
-            ._4s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/4_of_spades.svg/83px-4_of_spades.svg.png) no-repeat center/cover
-            ._5s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/5_of_spades.svg/83px-5_of_spades.svg.png) no-repeat center/cover
-            ._6s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/6_of_spades.svg/83px-6_of_spades.svg.png) no-repeat center/cover
-            ._7s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/7_of_spades.svg/83px-7_of_spades.svg.png) no-repeat center/cover
-            ._8s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/8_of_spades.svg/83px-8_of_spades.svg.png) no-repeat center/cover
-            ._9s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/9_of_spades.svg/83px-9_of_spades.svg.png) no-repeat center/cover
-            ._10s
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/10_of_spades.svg/83px-10_of_spades.svg.png) no-repeat center/cover
-            ._js
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Jack_of_spades2.svg/83px-Jack_of_spades2.svg.png) no-repeat center/cover
-            ._qs
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_spades2.svg/83px-Queen_of_spades2.svg.png) no-repeat center/cover
-            ._ks
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/King_of_spades2.svg/83px-King_of_spades2.svg.png) no-repeat center/cover
-            ._as
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ace_of_spades2.svg/83px-Ace_of_spades2.svg.png) no-repeat center/cover
-            ._bj
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Black_joker.svg/83px-Black_joker.svg.png) no-repeat center/cover
-            ._rj
-                background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Red_joker.svg/83px-Red_joker.svg.png) no-repeat center/cover
-        .easy
-            width: 500px
-        .medium
-            width: 600px
-        .hard
-            width: 700px
-        .extreme
-            width: 800px
-footer
-    .container
-        height: 112px
-        background: url(../images/plank.png) no-repeat center/contain
-        padding-top: 40px
+        p
+            color: $blackColor
+            font-weight: 700
+        h3
+            color: $lightYellowColor
+    #js-degree_of_difficulty
+        padding: 0 170px
+        height: 580px
         color: $lightYellowColor
-        margin-bottom: 105px
+        h2
+            color: $lightYellowColor
+            margin-bottom: 40px
+    #js-game_data,
+    #js-player_won,
+    #js-player_lost
+        margin: 70px auto
+        padding: 0 120px
+        width: 600px
+        background: url(../images/old_paper_horizontal.png) no-repeat center/contain
+    #js-game_data
+        height: 260px
+        color: $lightYellowColor
+        h3
+            margin: 0
+            span
+                color: $yellowColor
+            .warning
+                color: #ff3300
+    #js-player_won,
+    #js-player_lost
+        height: 340px
+        color: $yellowColor
+        p
+            font-weight: 700
+    .cards_container
+        color: $lightYellowColor
+        margin: 0 auto 70px
+        flex-wrap: wrap
+        .card
+            display: flex
+            align-items: center
+            justify-content: center
+            margin: 5px
+            +dimensions(54px, 76px)
+            position: relative
+            a
+                font-size: 20px
+                .card_reverse
+                    +dimensions(54px, 76px)
+        .card_match,
+        .card_mismatch
+            &:before
+                +dimensions(40px, 33px)
+                position: absolute
+                top: 25%
+                left: 50%
+                transform: translateX(-50%)
+        .card_match
+            &:before
+                content: url(../images/yes_sign.png)
+        .card_mismatch
+            &:before
+                content: url(../images/no_sign.png)
+        ._2c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/2_of_clubs.svg/83px-2_of_clubs.svg.png) no-repeat center/cover
+        ._3c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/3_of_clubs.svg/83px-3_of_clubs.svg.png) no-repeat center/cover
+        ._4c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/4_of_clubs.svg/83px-4_of_clubs.svg.png) no-repeat center/cover
+        ._5c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/5_of_clubs.svg/83px-5_of_clubs.svg.png) no-repeat center/cover
+        ._6c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/6_of_clubs.svg/83px-6_of_clubs.svg.png) no-repeat center/cover
+        ._7c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/7_of_clubs.svg/83px-7_of_clubs.svg.png) no-repeat center/cover
+        ._8c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/8_of_clubs.svg/83px-8_of_clubs.svg.png) no-repeat center/cover
+        ._9c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/9_of_clubs.svg/83px-9_of_clubs.svg.png) no-repeat center/cover
+        ._10c
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/10_of_clubs.svg/83px-10_of_clubs.svg.png) no-repeat center/cover
+        ._jc
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Jack_of_clubs2.svg/83px-Jack_of_clubs2.svg.png) no-repeat center/cover
+        ._qc
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_clubs2.svg/83px-Queen_of_clubs2.svg.png) no-repeat center/cover
+        ._kc
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/King_of_clubs2.svg/83px-King_of_clubs2.svg.png) no-repeat center/cover
+        ._ac
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ace_of_clubs.svg/83px-Ace_of_clubs.svg.png) no-repeat center/cover
+        ._2d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/2_of_diamonds.svg/83px-2_of_diamonds.svg.png) no-repeat center/cover
+        ._3d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/3_of_diamonds.svg/83px-3_of_diamonds.svg.png) no-repeat center/cover
+        ._4d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/4_of_diamonds.svg/83px-4_of_diamonds.svg.png) no-repeat center/cover
+        ._5d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/5_of_diamonds.svg/83px-5_of_diamonds.svg.png) no-repeat center/cover
+        ._6d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/6_of_diamonds.svg/83px-6_of_diamonds.svg.png) no-repeat center/cover
+        ._7d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/7_of_diamonds.svg/83px-7_of_diamonds.svg.png) no-repeat center/cover
+        ._8d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/8_of_diamonds.svg/83px-8_of_diamonds.svg.png) no-repeat center/cover
+        ._9d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/9_of_diamonds.svg/83px-9_of_diamonds.svg.png) no-repeat center/cover
+        ._10d
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/10_of_diamonds.svg/83px-10_of_diamonds.svg.png) no-repeat center/cover
+        ._jd
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Jack_of_diamonds2.svg/83px-Jack_of_diamonds2.svg.png) no-repeat center/cover
+        ._qd
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Queen_of_diamonds2.svg/83px-Queen_of_diamonds2.svg.png) no-repeat center/cover
+        ._kd
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/King_of_diamonds2.svg/83px-King_of_diamonds2.svg.png) no-repeat center/cover
+        ._ad
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ace_of_diamonds.svg/83px-Ace_of_diamonds.svg.png) no-repeat center/cover
+        ._2h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/2_of_hearts.svg/83px-2_of_hearts.svg.png) no-repeat center/cover
+        ._3h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/3_of_hearts.svg/83px-3_of_hearts.svg.png) no-repeat center/cover
+        ._4h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/4_of_hearts.svg/83px-4_of_hearts.svg.png) no-repeat center/cover
+        ._5h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/5_of_hearts.svg/83px-5_of_hearts.svg.png) no-repeat center/cover
+        ._6h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/6_of_hearts.svg/83px-6_of_hearts.svg.png) no-repeat center/cover
+        ._7h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/7_of_hearts.svg/83px-7_of_hearts.svg.png) no-repeat center/cover
+        ._8h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/8_of_hearts.svg/83px-8_of_hearts.svg.png) no-repeat center/cover
+        ._9h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/9_of_hearts.svg/83px-9_of_hearts.svg.png) no-repeat center/cover
+        ._10h
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/10_of_hearts.svg/83px-10_of_hearts.svg.png) no-repeat center/cover
+        ._jh
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jack_of_hearts2.svg/83px-Jack_of_hearts2.svg.png) no-repeat center/cover
+        ._qh
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Queen_of_hearts2.svg/83px-Queen_of_hearts2.svg.png) no-repeat center/cover
+        ._kh
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/King_of_hearts2.svg/83px-King_of_hearts2.svg.png) no-repeat center/cover
+        ._ah
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Ace_of_hearts.svg/83px-Ace_of_hearts.svg.png) no-repeat center/cover
+        ._2s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/2_of_spades.svg/83px-2_of_spades.svg.png) no-repeat center/cover
+        ._3s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/3_of_spades.svg/83px-3_of_spades.svg.png) no-repeat center/cover
+        ._4s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/4_of_spades.svg/83px-4_of_spades.svg.png) no-repeat center/cover
+        ._5s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/5_of_spades.svg/83px-5_of_spades.svg.png) no-repeat center/cover
+        ._6s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/6_of_spades.svg/83px-6_of_spades.svg.png) no-repeat center/cover
+        ._7s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/7_of_spades.svg/83px-7_of_spades.svg.png) no-repeat center/cover
+        ._8s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/8_of_spades.svg/83px-8_of_spades.svg.png) no-repeat center/cover
+        ._9s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/9_of_spades.svg/83px-9_of_spades.svg.png) no-repeat center/cover
+        ._10s
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/10_of_spades.svg/83px-10_of_spades.svg.png) no-repeat center/cover
+        ._js
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Jack_of_spades2.svg/83px-Jack_of_spades2.svg.png) no-repeat center/cover
+        ._qs
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_spades2.svg/83px-Queen_of_spades2.svg.png) no-repeat center/cover
+        ._ks
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/King_of_spades2.svg/83px-King_of_spades2.svg.png) no-repeat center/cover
+        ._as
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ace_of_spades2.svg/83px-Ace_of_spades2.svg.png) no-repeat center/cover
+        ._bj
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Black_joker.svg/83px-Black_joker.svg.png) no-repeat center/cover
+        ._rj
+            background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Red_joker.svg/83px-Red_joker.svg.png) no-repeat center/cover
+    .easy
+        width: 500px
+    .medium
+        width: 600px
+    .hard
+        width: 700px
+    .extreme
+        width: 800px
+footer
+    height: 112px
+    background: url(../images/plank.png) no-repeat center/contain
+    padding-top: 40px
+    color: $lightYellowColor
+    margin-bottom: 105px
 /* Media queries */
 /* For computers: */
 @media (max-width: 992px)
-    .container
+    .cards,
+    footer
         width: 100%
     .cards
-        .container
-            .extreme
-                width: 100%
-                max-width: 800px
+        .extreme
+            width: 100%
+            max-width: 800px
 /* For tablets: */
 @media (max-width: 768px)
     .cards
-        .container
-            .logo
-                height: 250px
-                h1
-                    font-size: 34px
-                h2
-                    font-size: 27px
-            #js-newGame,
-            #js-degree_of_difficulty
-                padding: 0 80px
-                width: 470px
-            #js-newGame
-                height: 640px
-                h2
-                    font-size: 1.2em
-                p
-                    font-size: 12px
-                h3
-                    font-size: 1em
-            #js-degree_of_difficulty
-                height: 520px
-                h2
-                    font-size: 1.2em
-                    padding: 0 60px
-                button
-                    margin: 15px 0
-            #js-game_data
-                padding: 0 70px
-                +dimensions(330px, 220px)
-                h3
-                    font-size: 1em
-            #js-player_won,
-            #js-player_lost
-                padding: 0 70px
-                +dimensions(440px, 340px)
-                h2
-                    font-size: 1.2em
-                p
-                    font-size: 0.9em
-            .easy,
-            .medium,
-            .hard,
-            .extreme
-                width: 100%
-            .easy
-                max-width: 500px
-            .medium
-                max-width: 600px
-            .hard
-                max-width: 700px
-            .extreme
-                max-width: 800px
+        .logo
+            height: 250px
+            h1
+                font-size: 34px
+            h2
+                font-size: 27px
+        #js-newGame,
+        #js-degree_of_difficulty
+            padding: 0 80px
+            width: 470px
+        #js-newGame
+            height: 640px
+            h2
+                font-size: 1.2em
+            p
+                font-size: 12px
+            h3
+                font-size: 1em
+        #js-degree_of_difficulty
+            height: 520px
+            h2
+                font-size: 1.2em
+                padding: 0 60px
+            button
+                margin: 15px 0
+        #js-game_data
+            padding: 0 70px
+            +dimensions(330px, 220px)
+            h3
+                font-size: 1em
+        #js-player_won,
+        #js-player_lost
+            padding: 0 70px
+            +dimensions(440px, 340px)
+            h2
+                font-size: 1.2em
+            p
+                font-size: 0.9em
+        .easy,
+        .medium,
+        .hard,
+        .extreme
+            width: 100%
+        .easy
+            max-width: 500px
+        .medium
+            max-width: 600px
+        .hard
+            max-width: 700px
+        .extreme
+            max-width: 800px
 /* For smart phones: */
 @media (max-width: 480px)
     .cards
-        .container
-            margin-top: 24vw
-            button
+        margin-top: 24vw
+        button
+            font-size: 0.9em
+            +max-dimensions(290px, 40px)
+            +dimensions(90vw, 12vw)
+            margin: 15px 0
+        .logo
+            height: 60vw
+            max-height: 250px
+            padding-bottom: 14vw
+            h1
+                font-size: 7vw
+            h2
+                font-size: 6vw
+        #js-newGame,
+        #js-degree_of_difficulty,
+        #js-game_data,
+        #js-player_won,
+        #js-player_lost
+            padding: 19vw 9vw
+            +dimensions(auto, 100%)
+            margin: 10vw 0
+            background-size: cover
+        #js-newGame
+            h2
+                font-size: 1.1em
+            p
+                font-size: 12px
+            h3
                 font-size: 0.9em
-                +max-dimensions(290px, 40px)
-                +dimensions(90vw, 12vw)
-                margin: 15px 0
-            .logo
-                height: 60vw
-                max-height: 250px
-                padding-bottom: 14vw
-                h1
-                    font-size: 7vw
-                h2
-                    font-size: 6vw
-            #js-newGame,
-            #js-degree_of_difficulty,
-            #js-game_data,
-            #js-player_won,
-            #js-player_lost
-                padding: 19vw 9vw
-                +dimensions(auto, 100%)
-                margin: 10vw 0
-                background-size: cover
-            #js-newGame
-                h2
-                    font-size: 1.1em
-                p
-                    font-size: 12px
-                h3
-                    font-size: 0.9em
-            #js-degree_of_difficulty
-                h2
-                    font-size: 1.1em
-                    padding: 0 20px
-            #js-game_data
-                h3
-                    font-size: 0.9em
-            #js-player_won,
-            #js-player_lost
-                h2
-                    font-size: 1.1em
-                p
-                    font-size: 0.86em
+        #js-degree_of_difficulty
+            h2
+                font-size: 1.1em
+                padding: 0 20px
+        #js-game_data
+            h3
+                font-size: 0.9em
+        #js-player_won,
+        #js-player_lost
+            h2
+                font-size: 1.1em
+            p
+                font-size: 0.86em
     footer
-        .container
-            font-size: 0.86em
-            height: 35vw
-            +max-dimensions(254px, 232px)
-            padding-top: 15%
+        font-size: 0.86em
+        height: 35vw
+        +max-dimensions(254px, 232px)
+        padding-top: 15%
