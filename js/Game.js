@@ -37,11 +37,11 @@ function Game(element) {
     });
 }
 Game.prototype = {
-    restartGameElements: function () {
-        game.pairsFound = 0;
-        game.$pairsFoundElement.text(game.pairsFound);
-        game.attemptsDone = 0;
-        game.$attemptsDoneElement.text(game.attemptsDone).removeClass("warning");
+    resetGameElements: function () {
+        this.pairsFound = 0;
+        this.$pairsFoundElement.text(this.pairsFound);
+        this.attemptsDone = 0;
+        this.$attemptsDoneElement.text(this.attemptsDone).removeClass("warning");
         $(".card, .card_reverse").css("visibility", "visible");
         gameCards.removeSelectedCardsClasses();
         gameCards.$links.css("cursor", "pointer");
@@ -62,7 +62,7 @@ Game.prototype = {
                 break;
             case 'ended':
                 this.$newGameBtn.text("Zagraj jeszcze raz!");
-                this.restartGameElements();
+                this.resetGameElements();
         }
     },
     newGame: function () {
