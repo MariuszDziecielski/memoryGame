@@ -21,6 +21,7 @@ function Game(element) {
     this.$playerWonElement = $("#js-player_won");
     this.$playerLostElement = $("#js-player_lost");
     this.$playAgainBtn = $('.js-playAgainBtn');
+    this.$restartGameBtn = $(".js-restartGameBtn");
     this.$finishGameBtn = $(".js-finishGameBtn");
     this.$easyLevelButton.click(() => {
         this.beginGame("easy", 13, Math.floor(13 * 2.5), "easy", gameCards.$cardsEasyLevel);
@@ -36,30 +37,34 @@ function Game(element) {
     });
 }
 Game.prototype = {
+    restartGameElements: function () {
+        game.pairsFound = 0;
+        game.$pairsFoundElement.text(game.pairsFound);
+        game.attemptsDone = 0;
+        game.$attemptsDoneElement.text(game.attemptsDone).removeClass("warning");
+        $(".card, .card_reverse").css("visibility", "visible");
+        gameCards.removeSelectedCardsClasses();
+        gameCards.$links.css("cursor", "pointer");
+    },
     setGameElements: function () {
         this.$newGameElement.show();
         this.$newGameBtn.click(() => {
             this.newGame();
         });
-        this.$degreeOfDifficultyElement.add(this.$gameDataElement).add(this.$playerWonElement).add(this.$playerLostElement).add(gameCards.$cardsContainer).add(gameCards.$cards).add(this.$finishGameBtn).hide();
-            switch (this.gameState) {
-                case 'started':
-                    this.$newGameElement.hide();
-                    $(".card").css("background-image", "none");
-                    gameCards.setCardReverseImage();
-                    this.$degreeOfDifficultyElement.css('display', 'flex');
-                    break;
-                case 'ended':
-                    this.$newGameBtn.text("Zagraj jeszcze raz!");
-                    this.pairsFound = 0;
-                    this.$pairsFoundElement.text(this.pairsFound);
-                    this.attemptsDone = 0;
-                    this.$attemptsDoneElement.text(this.attemptsDone).removeClass("warning");
-                    $(".card, .card_reverse").css("visibility", "visible");
-                    gameCards.removeSelectedCardsClasses();
-                    gameCards.$links.css("cursor", "pointer");
-            }
-        },
+        this.$degreeOfDifficultyElement.add(this.$gameDataElement).add(this.$playerWonElement).add(this.$playerLostElement).add(gameCards.$cardsContainer)
+            .add(gameCards.$cards).add(this.$restartGameBtn).add(this.$finishGameBtn).hide();
+        switch (this.gameState) {
+            case 'started':
+                this.$newGameElement.hide();
+                $(".card").css("background-image", "none");
+                gameCards.setCardReverseImage();
+                this.$degreeOfDifficultyElement.css('display', 'flex');
+                break;
+            case 'ended':
+                this.$newGameBtn.text("Zagraj jeszcze raz!");
+                this.restartGameElements();
+        }
+    },
     newGame: function () {
         this.gameState = 'started';
         this.setGameElements();
@@ -76,7 +81,7 @@ Game.prototype = {
         this.$playAgainBtn.click(() => {
             this.setGameElements();
         });
-        this.$finishGameBtn.hide();
+        this.$restartGameBtn.add(this.$finishGameBtn).hide();
         this.$attemptsDoneElement.removeClass("warning");
     },
     endGame: function (gameResult) {

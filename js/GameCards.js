@@ -93,12 +93,14 @@ GameCards.prototype = {
         }
     },
     showCards: function (cards) {
+        const pairsLeftInitVal = game.pairsLeft,
+            displayedCards = cards;
         game.$degreeOfDifficultyElement.hide();
         this.$cards = this.$cardsContainer.children();
         this.$cardsContainer.fadeIn();
         this.$cards.hide();
         this.shuffleCards();
-        cards.attr("title", "Odkryj kartę!").add(game.$finishGameBtn).add(game.$gameDataElement).fadeIn();
+        cards.attr("title", "Odkryj kartę!").add(game.$restartGameBtn).add(game.$finishGameBtn).add(game.$gameDataElement).fadeIn();
         switch(game.degreeOfDifficulty) {
             case "easy":
                 game.$gameLevelElement.text("łatwy");
@@ -114,6 +116,14 @@ GameCards.prototype = {
         }
         game.$pairsLeftElement.text(game.pairsLeft);
         game.$attemptsLeftElement.text(game.attemptsLeft);
+        game.$restartGameBtn.click(() => {
+            game.pairsLeft = pairsLeftInitVal;
+            game.$pairsLeftElement.text(game.pairsLeft);
+            game.restartGameElements();
+            this.$cards = this.$cardsContainer.children();
+            this.shuffleCards();
+            displayedCards.fadeOut().fadeIn();
+        });
         game.$finishGameBtn.click(() => {
             game.gameState = "ended";
             game.setGameElements();
