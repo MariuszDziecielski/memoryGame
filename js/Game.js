@@ -2,6 +2,9 @@ function Game(element) {
     this.$newGameElement = element;
     this.gameState = 'notStarted';
     this.$newGameBtn = $('#js-newGameBtn');
+
+    this.$selectGameCardsBackElement = $('#js-cards_back');
+
     this.$degreeOfDifficultyElement = $('#js-degree_of_difficulty');
     this.degreeOfDifficulty = "";
     this.$easyLevelButton = $("#js-easyLevel");
@@ -51,14 +54,17 @@ Game.prototype = {
         this.$newGameBtn.click(() => {
             this.newGame();
         });
-        this.$degreeOfDifficultyElement.add(this.$gameDataElement).add(this.$playerWonElement).add(this.$playerLostElement).add(gameCards.$cardsContainer)
-            .add(gameCards.$cards).add(this.$restartGameBtn).add(this.$finishGameBtn).hide();
+        this.$selectGameCardsBackElement.add(gameCards.$cardsBackContainer).add(this.$degreeOfDifficultyElement).add(this.$gameDataElement).add(this.$playerWonElement)
+            .add(this.$playerLostElement).add(gameCards.$cardsContainer).add(gameCards.$cards).add(this.$restartGameBtn).add(this.$finishGameBtn).hide();
         switch (this.gameState) {
             case 'started':
                 this.$newGameElement.hide();
                 $(".card").css("background-image", "none");
-                gameCards.setCardReverseImage();
-                this.$degreeOfDifficultyElement.css('display', 'flex');
+
+                this.$selectGameCardsBackElement.add(gameCards.$cardsBackContainer).css('display', 'flex');
+
+
+
                 break;
             case 'ended':
                 this.$newGameBtn.text("Zagraj jeszcze raz!");

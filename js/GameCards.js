@@ -1,7 +1,10 @@
 function GameCards(container) {
     this.$cardsContainer = container;
     this.$cards = $(".cards_container").children();
-    this.cardReverseImages = ['card_back_01', 'card_back_02', 'card_back_03', 'card_back_04', 'card_back_05', 'card_back_06', 'card_back_07', 'card_back_08', 'card_back_09', 'card_back_10', 'card_back_11'];
+
+    this.$cardsBackContainer = $(".cards_back_container");
+
+    this.cardsBackImagesIds = ['_01', '_02', '_03', '_04', '_05', '_06', '_07', '_08', '_09', '_10', '_11'];
     this.$cardsEasyLevel = $(".cards_container").find(".easy_level");
     this.$cardsMediumLevel = $(".cards_container").find(".medium_level");
     this.$cardsHardLevel = $(".cards_container").find(".hard_level");
@@ -11,12 +14,29 @@ function GameCards(container) {
     this.$secondCardLink = null;
     this.selectedCards = 0;
     this.$links.on("click", this.revealCard);
+
+    this.$cardsBackContainer.children().click(e => {
+            this.setCardsBackImage(e.target);
+            game.$selectGameCardsBackElement.add(this.$cardsBackContainer).hide();
+            game.$degreeOfDifficultyElement.css('display', 'flex');
+        }
+    );
+
 }
 GameCards.prototype = {
-    setCardReverseImage: function () {
-        const cardReverseImage = this.cardReverseImages[Math.floor(Math.random() * 11)];
-        $(".card_reverse").css("background", `url(images/${cardReverseImage}.png) no-repeat center/cover`);
+
+    setCardsBackImage: function (element) {
+
+
+        const cardBackImage = $(element).attr("id") !== "_12" ? $(element).attr("id") : this.cardsBackImagesIds[Math.floor(Math.random() * 11)];
+
+        $(".card_reverse").css("background", `url(images/card_back${cardBackImage}.png) no-repeat center/cover`);
+
+
     },
+
+
+
     shuffleCards: function () {
         while (this.$cards.length) {
             this.$cardsContainer.append(this.$cards.splice(Math.floor(Math.random() * this.$cards.length), 1)[0]);

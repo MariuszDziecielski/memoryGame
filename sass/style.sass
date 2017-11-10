@@ -69,13 +69,7 @@ footer
             font-weight: 700
         h3
             color: $lightYellowColor
-    #js-degree_of_difficulty
-        padding: 0 170px
-        height: 580px
-        color: $lightYellowColor
-        h2
-            color: $lightYellowColor
-            margin-bottom: 40px
+    #js-cards_back,
     #js-game_data,
     #js-player_won,
     #js-player_lost
@@ -83,6 +77,71 @@ footer
         padding: 0 120px
         width: 600px
         background: url(../images/old_paper_horizontal.png) no-repeat center/contain
+    #js-cards_back
+        height: 320px
+        color: $lightYellowColor
+        p
+            color: $yellowColor
+            font-weight: 700
+    .cards_back_container,
+    .cards_container
+        color: $lightYellowColor
+        margin: 0 auto 70px
+        flex-wrap: wrap
+    .cards_back_container
+        .card_back
+            display: flex
+            align-items: center
+            justify-content: center
+            margin: 5px
+            +dimensions(54px, 76px)
+
+    .cards_back_container
+        width: 300px
+        .card_back
+
+
+
+            cursor: pointer
+        #_01
+            background: url(../images/card_back_01.png) no-repeat center/cover
+        #_02
+            background: url(../images/card_back_02.png) no-repeat center/cover
+        #_03
+            background: url(../images/card_back_03.png) no-repeat center/cover
+        #_04
+            background: url(../images/card_back_04.png) no-repeat center/cover
+        #_05
+            background: url(../images/card_back_05.png) no-repeat center/cover
+        #_06
+            background: url(../images/card_back_06.png) no-repeat center/cover
+        #_07
+            background: url(../images/card_back_07.png) no-repeat center/cover
+        #_08
+            background: url(../images/card_back_08.png) no-repeat center/cover
+        #_09
+            background: url(../images/card_back_09.png) no-repeat center/cover
+        #_10
+            background: url(../images/card_back_10.png) no-repeat center/cover
+        #_11
+            background: url(../images/card_back_11.png) no-repeat center/cover
+
+
+        #_12
+            background: url(../images/card_back_12.png) no-repeat center/cover
+
+
+    #js-degree_of_difficulty
+        padding: 0 170px
+        height: 580px
+        color: $lightYellowColor
+        h2
+            color: $lightYellowColor
+            margin-bottom: 40px
+
+
+
+
     #js-game_data
         height: 260px
         color: $lightYellowColor
@@ -99,15 +158,14 @@ footer
         p
             font-weight: 700
     .cards_container
-        color: $lightYellowColor
-        margin: 0 auto 70px
-        flex-wrap: wrap
         .card
             display: flex
             align-items: center
             justify-content: center
             margin: 5px
             +dimensions(54px, 76px)
+
+
             position: relative
             a
                 font-size: 20px
@@ -280,6 +338,19 @@ footer
                 font-size: 12px
             h3
                 font-size: 1em
+
+        #js-cards_back,
+        #js-player_won,
+        #js-player_lost
+            padding: 0 70px
+            +dimensions(440px, 340px)
+            h2
+                font-size: 1.2em
+            p
+                font-size: 0.9em
+
+
+
         #js-degree_of_difficulty
             height: 520px
             h2
@@ -292,14 +363,7 @@ footer
             +dimensions(330px, 220px)
             h3
                 font-size: 1em
-        #js-player_won,
-        #js-player_lost
-            padding: 0 70px
-            +dimensions(440px, 340px)
-            h2
-                font-size: 1.2em
-            p
-                font-size: 0.9em
+
         .easy,
         .medium,
         .hard,
@@ -330,7 +394,10 @@ footer
                 font-size: 7vw
             h2
                 font-size: 6vw
+
+
         #js-newGame,
+        #js-cards_back,
         #js-degree_of_difficulty,
         #js-game_data,
         #js-player_won,
@@ -339,6 +406,8 @@ footer
             +dimensions(auto, 100%)
             margin: 10vw 0
             background-size: cover
+
+
         #js-newGame
             h2
                 font-size: 1.1em
@@ -346,6 +415,13 @@ footer
                 font-size: 12px
             h3
                 font-size: 0.9em
+
+
+
+
+        .cards_back_container
+            width: 100%
+
         #js-degree_of_difficulty
             h2
                 font-size: 1.1em
