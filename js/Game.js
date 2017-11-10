@@ -2,9 +2,7 @@ function Game(element) {
     this.$newGameElement = element;
     this.gameState = 'notStarted';
     this.$newGameBtn = $('#js-newGameBtn');
-
     this.$selectGameCardsBackElement = $('#js-cards_back');
-
     this.$degreeOfDifficultyElement = $('#js-degree_of_difficulty');
     this.degreeOfDifficulty = "";
     this.$easyLevelButton = $("#js-easyLevel");
@@ -60,11 +58,7 @@ Game.prototype = {
             case 'started':
                 this.$newGameElement.hide();
                 $(".card").css("background-image", "none");
-
                 this.$selectGameCardsBackElement.add(gameCards.$cardsBackContainer).css('display', 'flex');
-
-
-
                 break;
             case 'ended':
                 this.$newGameBtn.text("Zagraj jeszcze raz!");
