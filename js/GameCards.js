@@ -1,49 +1,49 @@
-function GameCards(container) {
-    this.$cardsContainer = container;
-    this.$cards = $(".cards_container").children();
-    this.$cardsBackContainer = $(".cards_back_container");
-    this.cardsBackImagesIds = ['_01', '_02', '_03', '_04', '_05', '_06', '_07', '_08', '_09', '_10', '_11'];
-    this.$cardsEasyLevel = $(".cards_container").find(".easy_level");
-    this.$cardsMediumLevel = $(".cards_container").find(".medium_level");
-    this.$cardsHardLevel = $(".cards_container").find(".hard_level");
-    this.$cardsExtremeLevel = $(".cards_container").find(".extreme_level");
-    this.$links = $(".card a");
-    this.$firstCardLink = null;
-    this.$secondCardLink = null;
-    this.selectedCards = 0;
-    this.$links.on("click", this.revealCard);
-    this.$cardsBackContainer.children().click(e => {
-            this.setCardsBackImage(e.target);
-            game.$selectGameCardsBackElement.add(this.$cardsBackContainer).hide();
-            game.$degreeOfDifficultyElement.css('display', 'flex');
-        }
-    );
-}
-GameCards.prototype = {
-    setCardsBackImage: function (element) {
+class GameCards {
+    constructor(container) {
+        this.$cardsContainer = container;
+        this.$cards = $(".cards_container").children();
+        this.$cardsBackContainer = $(".cards_back_container");
+        this.cardsBackImagesIds = ['_01', '_02', '_03', '_04', '_05', '_06', '_07', '_08', '_09', '_10', '_11'];
+        this.$cardsEasyLevel = $(".cards_container").find(".easy_level");
+        this.$cardsMediumLevel = $(".cards_container").find(".medium_level");
+        this.$cardsHardLevel = $(".cards_container").find(".hard_level");
+        this.$cardsExtremeLevel = $(".cards_container").find(".extreme_level");
+        this.$links = $(".card a");
+        this.$firstCardLink = null;
+        this.$secondCardLink = null;
+        this.selectedCards = 0;
+        this.$links.on("click", this.revealCard);
+        this.$cardsBackContainer.children().click(e => {
+                this.setCardsBackImage(e.target);
+                game.$selectGameCardsBackElement.add(this.$cardsBackContainer).hide();
+                game.$degreeOfDifficultyElement.css('display', 'flex');
+            }
+        );
+    }
+    setCardsBackImage(element) {
         const cardBackImage = $(element).attr("id") !== "_12" ? $(element).attr("id") : this.cardsBackImagesIds[Math.floor(Math.random() * 11)];
         $(".card_reverse").css("background", `url(images/card_back${cardBackImage}.png) no-repeat center/cover`);
-    },
-    shuffleCards: function () {
+    }
+    shuffleCards() {
         while (this.$cards.length) {
             this.$cardsContainer.append(this.$cards.splice(Math.floor(Math.random() * this.$cards.length), 1)[0]);
         }
-    },
-    addCardClass: function (element, cardClass) {
+    }
+    addCardClass(element, cardClass) {
         $(element).parent().removeAttr("style");
         $(element).find(".card_reverse").css("visibility", "hidden");
         $(element).parent().addClass(cardClass);
         this.selectedCards ++;
-    },
-    removeSelectedCardsClasses: function () {
+    }
+    removeSelectedCardsClasses() {
         $(".card").removeClass("firstCard secondCard");
         this.selectedCards = 0;
-    },
-    changeCardReverseVisibility: function (firstCardLinkVisibility, secondCardLinkVisibility) {
+    }
+    changeCardReverseVisibility(firstCardLinkVisibility, secondCardLinkVisibility) {
         this.$firstCardLink.find(".card_reverse").css("visibility", firstCardLinkVisibility);
         this.$secondCardLink.find(".card_reverse").css("visibility", secondCardLinkVisibility);
-    },
-    revealCard: function (e) {
+    }
+    revealCard(e) {
         e.preventDefault();
         let $firstCard,
             $secondCard,
@@ -98,8 +98,8 @@ GameCards.prototype = {
                 }, 850);
             }
         }
-    },
-    showCards: function (cards) {
+    }
+    showCards(cards) {
         game.$degreeOfDifficultyElement.hide();
         this.$cards = this.$cardsContainer.children();
         this.$cardsContainer.fadeIn();
@@ -142,7 +142,7 @@ GameCards.prototype = {
             game.setGameElements();
         });
     }
-};
+}
 const game = new Game($('#js-newGame')),
     gameCards = new GameCards($(".cards_container"));
 game.setGameElements();
