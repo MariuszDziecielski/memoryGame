@@ -125,16 +125,16 @@ class GameCards {
             game.resetGameElements();
             switch(game.degreeOfDifficulty) {
                 case "easy":
-                    game.$easyLevelButton.click();
+                    game.$degOfDiffElemButtons[0].click();
                     break;
                 case "medium":
-                    game.$mediumLevelButton.click();
+                    game.$degOfDiffElemButtons[1].click();
                     break;
                 case "hard":
-                    game.$hardLevelButton.click();
+                    game.$degOfDiffElemButtons[2].click();
                     break;
                 case "extreme":
-                    game.$extremeLevelButton.click();
+                    game.$degOfDiffElemButtons[3].click();
             }
         });
         game.$finishGameBtn.click(() => {
@@ -146,3 +146,4 @@ class GameCards {
 const game = new Game($('#js-newGame')),
     gameCards = new GameCards($(".cards_container"));
 game.setGameElements();
+game.handleDegOfDiffElemButtons();
