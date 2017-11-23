@@ -6,6 +6,7 @@
         <meta name="description" content="Gra memory!">
         <meta name="author" content="Mariusz Dzięcielski">
         <title>Match The Cards&reg; Memory Game</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -614,8 +615,8 @@
                     </a>
                 </div>
             </div>
-            <button type="button" class="js-restartGameBtn">Zrestartuj grę!</button>
-            <button type="button" class="js-finishGameBtn">Zakończ grę!</button>
+            <button type="button" class="js-restartGameBtn" title="Rozpocznij grę od nowa (ten sam poziom trudności)!">Zrestartuj grę!</button>
+            <button type="button" class="js-finishGameBtn" title="Wyjdź z gry (powrót do ekranu początkowego)!">Zakończ grę!</button>
         </section>
         <footer>
             <div class="container flex content-center">
@@ -625,6 +626,7 @@
             </div>
         </footer>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/Game.js"></script>
         <script type="text/javascript" src="js/GameCards.js"></script>
     </body>

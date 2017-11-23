@@ -39,6 +39,11 @@ class GameCards {
         $(".card").removeClass("firstCard secondCard");
         this.selectedCards = 0;
     }
+    addCardClickHandler() {
+        this.removeSelectedCardsClasses();
+        this.$links.on("click", this.revealCard).css("cursor", "pointer");
+        $(".card_reverse").addClass("hover");
+    }
     changeCardReverseVisibility(firstCardLinkVisibility, secondCardLinkVisibility) {
         this.$firstCardLink.find(".card_reverse").css("visibility", firstCardLinkVisibility);
         this.$secondCardLink.find(".card_reverse").css("visibility", secondCardLinkVisibility);
@@ -50,15 +55,16 @@ class GameCards {
             $twoCards;
         if (gameCards.selectedCards === 0) {
             gameCards.addCardClass(this, "firstCard");
-            $(this).css("cursor", "not-allowed").parent().removeAttr("title");
+            $(this).css("cursor", "not-allowed");
         }
         if (gameCards.selectedCards === 1 & !$(this).parent().hasClass("firstCard")) {
             gameCards.addCardClass(this, "secondCard");
         }
         if (gameCards.selectedCards === 2) {
+            $(".card_reverse").removeClass("hover");
             gameCards.$links.off("click", gameCards.revealCard).click(e => {
                 e.preventDefault();
-            }).css("cursor", "not-allowed").parent().removeAttr("title");
+            }).css("cursor", "not-allowed");
             $firstCard = $(".firstCard");
             $secondCard = $(".secondCard");
             $twoCards = $firstCard.add($secondCard);
@@ -78,9 +84,8 @@ class GameCards {
                     game.setAttemptsDone();
                     game.checkGameStatus();
                 }, 800);
-                gameCards.removeSelectedCardsClasses();
                 setTimeout(() => {
-                    gameCards.$links.on("click", gameCards.revealCard).css("cursor", "pointer").parent().attr("title", "Odkryj kartę!");
+                    gameCards.addCardClickHandler();
                 }, 850);
             } else {
                 setTimeout(() => {
@@ -92,20 +97,20 @@ class GameCards {
                     game.setAttemptsDone();
                     game.checkGameStatus();
                 }, 800);
-                gameCards.removeSelectedCardsClasses();
                 setTimeout(() => {
-                    gameCards.$links.on("click", gameCards.revealCard).css("cursor", "pointer").parent().attr("title", "Odkryj kartę!");
+                    gameCards.addCardClickHandler();
                 }, 850);
             }
         }
     }
     showCards(cards) {
+        $(".card_reverse").addClass("hover");
         game.$degreeOfDifficultyElement.hide();
         this.$cards = this.$cardsContainer.children();
         this.$cardsContainer.fadeIn();
         this.$cards.hide();
         this.shuffleCards();
-        cards.attr("title", "Odkryj kartę!").add(game.$restartGameBtn).add(game.$finishGameBtn).add(game.$gameDataElement).fadeIn();
+        cards.add(game.$restartGameBtn).add(game.$finishGameBtn).add(game.$gameDataElement).fadeIn();
         switch(game.degreeOfDifficulty) {
             case "easy":
                 game.$gameLevelElement.text("łatwy");
