@@ -22,6 +22,7 @@ class Game {
         this.$playAgainBtn = $('.js-playAgainBtn');
         this.$restartGameBtn = $(".js-restartGameBtn");
         this.$finishGameBtn = $(".js-finishGameBtn");
+        this.$windowWidth = $(window).width();
     }
     handleDegOfDiffElemButtons() {
         let beginGameParam = [
@@ -38,16 +39,18 @@ class Game {
         for (let i = 0; i < game.$degOfDiffElemButtons.length; i++) {
             addClickButtonsHandler(i);
         }
-        $("button").tooltip({
-            position: {
-                my: "center bottom-0",
-                at: "center top",
-                using: function(position, feedback) {
-                    $(this).css(position);
-                    $("<div>").addClass(feedback.vertical).addClass(feedback.horizontal).appendTo(this);
+        if (this.$windowWidth > 767) {
+            $("button").tooltip({
+                position: {
+                    my: "center bottom-0",
+                    at: "center top",
+                    using: function(position, feedback) {
+                        $(this).css(position);
+                        $("<div>").addClass(feedback.vertical).addClass(feedback.horizontal).appendTo(this);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
     resetGameElements() {
         this.pairsFound = 0;

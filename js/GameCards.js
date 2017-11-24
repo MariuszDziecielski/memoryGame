@@ -42,7 +42,9 @@ class GameCards {
     addCardClickHandler() {
         this.removeSelectedCardsClasses();
         this.$links.on("click", this.revealCard).css("cursor", "pointer");
-        $(".card_reverse").addClass("hover");
+        if (game.$windowWidth > 767) {
+            $(".card_reverse").addClass("hover");
+        }
     }
     changeCardReverseVisibility(firstCardLinkVisibility, secondCardLinkVisibility) {
         this.$firstCardLink.find(".card_reverse").css("visibility", firstCardLinkVisibility);
@@ -104,7 +106,9 @@ class GameCards {
         }
     }
     showCards(cards) {
-        $(".card_reverse").addClass("hover");
+        if (game.$windowWidth > 767) {
+            $(".card_reverse").addClass("hover");
+        }
         game.$degreeOfDifficultyElement.hide();
         this.$cards = this.$cardsContainer.children();
         this.$cardsContainer.fadeIn();
