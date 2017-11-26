@@ -12,6 +12,13 @@ class GameCards {
         this.$firstCardLink = null;
         this.$secondCardLink = null;
         this.selectedCards = 0;
+        this.cardReverseHoverHandlerParam = [
+            function() {
+                $(this).addClass("hover");
+            }, function() {
+                $(this).removeClass("hover");
+            }
+        ];
         this.$links.on("click", this.revealCard);
         this.$cardsBackContainer.children().click(e => {
                 this.setCardsBackImage(e.target);
@@ -43,7 +50,7 @@ class GameCards {
         this.removeSelectedCardsClasses();
         this.$links.on("click", this.revealCard).css("cursor", "pointer");
         if (game.$windowWidth > 767) {
-            $(".card_reverse").addClass("hover");
+            $(".card_reverse").hover(...this.cardReverseHoverHandlerParam);
         }
     }
     changeCardReverseVisibility(firstCardLinkVisibility, secondCardLinkVisibility) {
@@ -63,8 +70,8 @@ class GameCards {
             gameCards.addCardClass(this, "secondCard");
         }
         if (gameCards.selectedCards === 2) {
-            $(".card_reverse").removeClass("hover");
-            gameCards.$links.off("click", gameCards.revealCard).click(e => {
+            $(".card_reverse").off("mouseenter mouseleave");
+            gameCards.$links.off("click").click(e => {
                 e.preventDefault();
             }).css("cursor", "not-allowed");
             $firstCard = $(".firstCard");
@@ -107,7 +114,7 @@ class GameCards {
     }
     showCards(cards) {
         if (game.$windowWidth > 767) {
-            $(".card_reverse").addClass("hover");
+            $(".card_reverse").hover(...this.cardReverseHoverHandlerParam);
         }
         game.$degreeOfDifficultyElement.hide();
         this.$cards = this.$cardsContainer.children();
