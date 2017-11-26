@@ -3,7 +3,7 @@ class GameCards {
         this.$cardsContainer = container;
         this.$cards = $(".cards_container").children();
         this.$cardsBackContainer = $(".cards_back_container");
-        this.cardsBackImagesIds = ['_01', '_02', '_03', '_04', '_05', '_06', '_07', '_08', '_09', '_10', '_11'];
+        this.cardsBackImagesIds = ['_01', '_02', '_03', '_04', '_05', '_06', '_07', '_08', '_09', '_10', '_11', '_12', '_13', '_14', '_15'];
         this.$cardsEasyLevel = $(".cards_container").find(".easy_level");
         this.$cardsMediumLevel = $(".cards_container").find(".medium_level");
         this.$cardsHardLevel = $(".cards_container").find(".hard_level");
@@ -12,13 +12,6 @@ class GameCards {
         this.$firstCardLink = null;
         this.$secondCardLink = null;
         this.selectedCards = 0;
-        this.cardReverseHoverHandlerParam = [
-            function() {
-                $(this).addClass("hover");
-            }, function() {
-                $(this).removeClass("hover");
-            }
-        ];
         this.$links.on("click", this.revealCard);
         this.$cardsBackContainer.children().click(e => {
                 this.setCardsBackImage(e.target);
@@ -28,7 +21,7 @@ class GameCards {
         );
     }
     setCardsBackImage(element) {
-        const cardBackImage = $(element).attr("id") !== "_12" ? $(element).attr("id") : this.cardsBackImagesIds[Math.floor(Math.random() * 11)];
+        const cardBackImage = $(element).attr("id") !== "_16" ? $(element).attr("id") : this.cardsBackImagesIds[Math.floor(Math.random() * 15)];
         $(".card_reverse").css("background", `url(images/card_back${cardBackImage}.png) no-repeat center/cover`);
     }
     shuffleCards() {
@@ -50,7 +43,7 @@ class GameCards {
         this.removeSelectedCardsClasses();
         this.$links.on("click", this.revealCard).css("cursor", "pointer");
         if (game.$windowWidth > 767) {
-            $(".card_reverse").hover(...this.cardReverseHoverHandlerParam);
+            $(".card_reverse").addClass("question_mark");
         }
     }
     changeCardReverseVisibility(firstCardLinkVisibility, secondCardLinkVisibility) {
@@ -70,7 +63,7 @@ class GameCards {
             gameCards.addCardClass(this, "secondCard");
         }
         if (gameCards.selectedCards === 2) {
-            $(".card_reverse").off("mouseenter mouseleave");
+            $(".card_reverse").removeClass("question_mark");
             gameCards.$links.off("click").click(e => {
                 e.preventDefault();
             }).css("cursor", "not-allowed");
@@ -114,7 +107,7 @@ class GameCards {
     }
     showCards(cards) {
         if (game.$windowWidth > 767) {
-            $(".card_reverse").hover(...this.cardReverseHoverHandlerParam);
+            $(".card_reverse").addClass("question_mark");
         }
         game.$degreeOfDifficultyElement.hide();
         this.$cards = this.$cardsContainer.children();
