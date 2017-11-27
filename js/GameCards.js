@@ -22,7 +22,7 @@ class GameCards {
     }
     setCardsBackImage(element) {
         const cardBackImage = $(element).attr("id") !== "_16" ? $(element).attr("id") : this.cardsBackImagesIds[Math.floor(Math.random() * 15)];
-        $(".card_reverse").css("background", `url(images/card_back${cardBackImage}.png) no-repeat center/cover`);
+        $(".card_reverse").css("background", `url(images/cards_back/card_back${cardBackImage}.png) no-repeat center/cover`);
     }
     shuffleCards() {
         while (this.$cards.length) {
