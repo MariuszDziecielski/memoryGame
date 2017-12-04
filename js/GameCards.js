@@ -41,7 +41,7 @@ class GameCards {
     }
     addCardClickHandler() {
         this.removeSelectedCardsClasses();
-        this.$links.on("click", this.revealCard).css("cursor", "pointer");
+        this.$links.on("click", this.revealCard).css("cursor", `url(images/hand_icon.png) 5 5, pointer`);
         if (game.$windowWidth > 767) {
             $(".card_reverse").addClass("question_mark");
         }
@@ -57,7 +57,7 @@ class GameCards {
             $twoCards;
         if (gameCards.selectedCards === 0) {
             gameCards.addCardClass(this, "firstCard");
-            $(this).css("cursor", "not-allowed");
+            $(this).css("cursor", `url(images/disabled_icon.png) 5 5, not-allowed`);
         }
         if (gameCards.selectedCards === 1 & !$(this).parent().hasClass("firstCard")) {
             gameCards.addCardClass(this, "secondCard");
@@ -66,7 +66,7 @@ class GameCards {
             $(".card_reverse").removeClass("question_mark");
             gameCards.$links.off("click").click(e => {
                 e.preventDefault();
-            }).css("cursor", "not-allowed");
+            }).css("cursor", `url(images/disabled_icon.png) 5 5, not-allowed`);
             $firstCard = $(".firstCard");
             $secondCard = $(".secondCard");
             $twoCards = $firstCard.add($secondCard);
@@ -85,10 +85,10 @@ class GameCards {
                     game.$pairsFoundElement.text(game.pairsFound);
                     game.setAttemptsDone();
                     game.checkGameStatus();
-                }, 800);
+                }, 900);
                 setTimeout(() => {
                     gameCards.addCardClickHandler();
-                }, 850);
+                }, 950);
             } else {
                 setTimeout(() => {
                     $twoCards.addClass("card_mismatch");
@@ -98,10 +98,10 @@ class GameCards {
                     gameCards.changeCardReverseVisibility("visible", "visible");
                     game.setAttemptsDone();
                     game.checkGameStatus();
-                }, 800);
+                }, 900);
                 setTimeout(() => {
                     gameCards.addCardClickHandler();
-                }, 850);
+                }, 950);
             }
         }
     }

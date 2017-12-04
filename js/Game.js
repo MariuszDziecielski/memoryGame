@@ -39,18 +39,6 @@ class Game {
         for (let i = 0; i < game.$degOfDiffElemButtons.length; i++) {
             addClickButtonsHandler(i);
         }
-        if (this.$windowWidth > 767) {
-            $("button").tooltip({
-                position: {
-                    my: "center bottom-0",
-                    at: "center top",
-                    using: function(position, feedback) {
-                        $(this).css(position);
-                        $("<div>").addClass(feedback.vertical).addClass(feedback.horizontal).appendTo(this);
-                    }
-                }
-            });
-        }
     }
     resetGameElements() {
         this.pairsFound = 0;
@@ -59,7 +47,7 @@ class Game {
         this.$attemptsDoneElement.text(this.attemptsDone).removeClass("warning");
         $(".card, .card_reverse").css("visibility", "visible");
         gameCards.removeSelectedCardsClasses();
-        gameCards.$links.css("cursor", "pointer");
+        gameCards.$links.css("cursor", `url(images/hand_icon.png) 5 5, pointer`);
     }
     setGameElements() {
         this.$newGameElement.show();
@@ -77,6 +65,34 @@ class Game {
             case 'ended':
                 this.$newGameBtn.text("Zagraj jeszcze raz!");
                 this.resetGameElements();
+        }
+        if (this.$windowWidth > 767) {
+            $("button .card_back").tooltip({
+                position: {
+                    using: function(position, feedback) {
+                        $(this).css(position);
+                        $("<div>").addClass(feedback.vertical).addClass(feedback.horizontal).appendTo(this);
+                    }
+                }
+            });
+            $("button").tooltip({
+                position: {
+                    my: "center bottom-3",
+                    at: "center top"
+                },
+                classes: {
+                    "ui-tooltip": "button-tooltip"
+                }
+            });
+            $(".card_back").tooltip({
+                position: {
+                    my: "center top+3",
+                    at: "center bottom"
+                },
+                classes: {
+                    "ui-tooltip": "card_back-tooltip"
+                }
+            });
         }
     }
     newGame() {
