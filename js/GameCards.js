@@ -13,7 +13,7 @@ class GameCards {
         this.$secondCardLink = null;
         this.selectedCards = 0;
         this.$links.on("click", this.revealCard);
-        this.$cardsBackContainer.children().click(e => {
+        this.$cardsBackContainer.children().on("click", e => {
                 this.setCardsBackImage(e.target);
                 game.$selectGameCardsBackElement.add(this.$cardsBackContainer).hide();
                 game.$degreeOfDifficultyElement.css('display', 'flex');
@@ -64,7 +64,7 @@ class GameCards {
         }
         if (gameCards.selectedCards === 2) {
             $(".card_reverse").removeClass("question_mark");
-            gameCards.$links.off("click").click(e => {
+            gameCards.$links.off("click").on("click", e => {
                 e.preventDefault();
             }).css("cursor", `url(images/disabled_icon.png) 5 5, not-allowed`);
             $firstCard = $(".firstCard");
@@ -130,7 +130,7 @@ class GameCards {
         }
         game.$pairsLeftElement.text(game.pairsLeft);
         game.$attemptsLeftElement.text(game.attemptsLeft);
-        game.$restartGameBtn.click(() => {
+        game.$restartGameBtn.on("click", () => {
             game.resetGameElements();
             switch(game.degreeOfDifficulty) {
                 case "easy":
@@ -146,7 +146,7 @@ class GameCards {
                     game.$degOfDiffElemButtons[3].click();
             }
         });
-        game.$finishGameBtn.click(() => {
+        game.$finishGameBtn.on("click", () => {
             game.gameState = "ended";
             game.setGameElements();
         });

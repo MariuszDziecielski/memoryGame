@@ -25,14 +25,14 @@ class Game {
         this.$windowWidth = $(window).width();
     }
     handleDegOfDiffElemButtons() {
-        let beginGameParam = [
+        const beginGameParam = [
             ["easy", 13, Math.floor(13 * 2.5), "easy", gameCards.$cardsEasyLevel],
             ["medium", 26, Math.floor(26 * 3.4), "medium", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel)],
             ["hard", 39, Math.floor(39 * 4.3), "hard", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel)],
             ["extreme", 54, Math.floor(39 * 5.2), "extreme", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel).add(gameCards.$cardsExtremeLevel)]
         ];
         function addClickButtonsHandler(button) {
-            $(game.$degOfDiffElemButtons[button]).click(() => {
+            $(game.$degOfDiffElemButtons[button]).on("click", () => {
                 game.beginGame(...beginGameParam[button]);
             });
         }
@@ -51,7 +51,7 @@ class Game {
     }
     setGameElements() {
         this.$newGameElement.show();
-        this.$newGameBtn.click(() => {
+        this.$newGameBtn.on("click", () => {
             this.newGame();
         });
         this.$selectGameCardsBackElement.add(gameCards.$cardsBackContainer).add(this.$degreeOfDifficultyElement).add(this.$gameDataElement).add(this.$playerWonElement)
@@ -108,7 +108,7 @@ class Game {
     }
     showGameResult(element) {
         element.css('display', 'flex');
-        this.$playAgainBtn.click(() => {
+        this.$playAgainBtn.on("click", () => {
             this.setGameElements();
         });
         this.$restartGameBtn.add(this.$finishGameBtn).hide();
