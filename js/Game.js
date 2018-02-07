@@ -7,6 +7,32 @@ class Game {
         this.$degreeOfDifficultyElement = $('#js-degree_of_difficulty');
         this.degreeOfDifficulty = "";
         this.$degOfDiffElemButtons = this.$degreeOfDifficultyElement.find("button");
+        this.beginGameParam = {
+            easy: {
+                pairsLeft: 13,
+                attemptsLeft: Math.floor(13 * 2.5),
+                cardsContainerClass: "easy",
+                cards: $(".easy_level")
+            },
+            medium: {
+                pairsLeft: 26,
+                attemptsLeft: Math.floor(26 * 3.4),
+                cardsContainerClass: "medium",
+                cards: $(".easy_level, .medium_level")
+            },
+            hard: {
+                pairsLeft: 39,
+                attemptsLeft: Math.floor(39 * 4.3),
+                cardsContainerClass: "hard",
+                cards: $(".easy_level, .medium_level, .hard_level")
+            },
+            extreme: {
+                pairsLeft: 54,
+                attemptsLeft: Math.floor(54 * 3.8),
+                cardsContainerClass: "extreme",
+                cards: $(".easy_level, .medium_level, .hard_level, .extreme_level")
+            }
+        };
         this.$gameDataElement = $("#js-game_data");
         this.$gameLevelElement = $("#js-game_level");
         this.$pairsLeftElement = $("#js-pairs_left");
@@ -25,19 +51,20 @@ class Game {
         this.$windowWidth = $(window).width();
     }
     handleDegOfDiffElemButtons() {
-        const beginGameParam = [
-            ["easy", 13, Math.floor(13 * 2.5), "easy", gameCards.$cardsEasyLevel],
-            ["medium", 26, Math.floor(26 * 3.4), "medium", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel)],
-            ["hard", 39, Math.floor(39 * 4.3), "hard", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel)],
-            ["extreme", 54, Math.floor(39 * 5.2), "extreme", gameCards.$cardsEasyLevel.add(gameCards.$cardsMediumLevel).add(gameCards.$cardsHardLevel).add(gameCards.$cardsExtremeLevel)]
-        ];
-        function addClickButtonsHandler(button) {
+        function addClickButtonsHandler(button, degreeOfDifficulty) {
             $(game.$degOfDiffElemButtons[button]).on("click", () => {
-                game.beginGame(...beginGameParam[button]);
+                game.beginGame(
+                    `${degreeOfDifficulty}`,
+                    game.beginGameParam[degreeOfDifficulty].pairsLeft,
+                    game.beginGameParam[degreeOfDifficulty].attemptsLeft,
+                    game.beginGameParam[degreeOfDifficulty].cardsContainerClass,
+                    game.beginGameParam[degreeOfDifficulty].cards
+                );
             });
         }
-        for (let i = 0; i < game.$degOfDiffElemButtons.length; i++) {
-            addClickButtonsHandler(i);
+        const degreeOfDifficulty = ['easy', 'medium', 'hard', 'extreme'];
+        for (let i = 0; i < this.$degOfDiffElemButtons.length; i++) {
+            addClickButtonsHandler(i, degreeOfDifficulty[i]);
         }
     }
     resetGameElements() {

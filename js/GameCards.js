@@ -4,10 +4,6 @@ class GameCards {
         this.$cards = $(".cards_container").children();
         this.$cardsBackContainer = $(".cards_back_container");
         this.cardsBackImagesIds = ['_01', '_02', '_03', '_04', '_05', '_06', '_07', '_08', '_09', '_10', '_11', '_12', '_13', '_14', '_15'];
-        this.$cardsEasyLevel = $(".cards_container").find(".easy_level");
-        this.$cardsMediumLevel = $(".cards_container").find(".medium_level");
-        this.$cardsHardLevel = $(".cards_container").find(".hard_level");
-        this.$cardsExtremeLevel = $(".cards_container").find(".extreme_level");
         this.$links = $(".card a");
         this.$firstCardLink = null;
         this.$secondCardLink = null;
@@ -116,16 +112,16 @@ class GameCards {
         this.shuffleCards();
         cards.add(game.$restartGameBtn).add(game.$finishGameBtn).add(game.$gameDataElement).fadeIn();
         switch(game.degreeOfDifficulty) {
-            case "easy":
+            case 'easy':
                 game.$gameLevelElement.text("łatwy");
                 break;
-            case "medium":
+            case 'medium':
                 game.$gameLevelElement.text("średni");
                 break;
-            case "hard":
+            case 'hard':
                 game.$gameLevelElement.text("trudny");
                 break;
-            case "extreme":
+            case 'extreme':
                 game.$gameLevelElement.text("ekstremalny");
         }
         game.$pairsLeftElement.text(game.pairsLeft);
@@ -133,16 +129,16 @@ class GameCards {
         game.$restartGameBtn.on("click", () => {
             game.resetGameElements();
             switch(game.degreeOfDifficulty) {
-                case "easy":
+                case 'easy':
                     game.$degOfDiffElemButtons[0].click();
                     break;
-                case "medium":
+                case 'medium':
                     game.$degOfDiffElemButtons[1].click();
                     break;
-                case "hard":
+                case 'hard':
                     game.$degOfDiffElemButtons[2].click();
                     break;
-                case "extreme":
+                case 'extreme':
                     game.$degOfDiffElemButtons[3].click();
             }
         });
