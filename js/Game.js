@@ -48,7 +48,7 @@ class Game {
         this.$playAgainBtn = $('.js-playAgainBtn');
         this.$restartGameBtn = $(".js-restartGameBtn");
         this.$finishGameBtn = $(".js-finishGameBtn");
-        this.$windowWidth = $(window).width();
+        this.viewportWidth = window.matchMedia("screen and (min-width: 768px)");
     }
     handleDegOfDiffElemButtons() {
         function addClickButtonsHandler(button, degreeOfDifficulty) {
@@ -93,8 +93,10 @@ class Game {
                 this.$newGameBtn.text("Zagraj jeszcze raz!");
                 this.resetGameElements();
         }
-        if (this.$windowWidth > 767) {
-            $("button .card_back").tooltip({
+    }
+    toggleTooltips() {
+        function showTooltips() {
+            $("button, .card_back").tooltip({
                 position: {
                     using: function(position, feedback) {
                         $(this).css(position);
@@ -121,6 +123,20 @@ class Game {
                 }
             });
         }
+        if (this.viewportWidth.matches) {
+            showTooltips();
+        }
+        this.viewportWidth.addListener(function(mediaQuery) {
+            if (mediaQuery.matches) {
+                showTooltips();
+                $(".card_reverse").addClass("question_mark");
+            } else {
+                if ($("button, .card_back").is(':ui-tooltip')) {
+                    $("button, .card_back").tooltip("destroy");
+                }
+                $(".card_reverse").removeClass("question_mark");
+            }
+        });
     }
     newGame() {
         this.gameState = 'started';

@@ -1,7 +1,7 @@
 class GameCards {
     constructor(container) {
         this.$cardsContainer = container;
-        this.$cards = $(".cards_container").children();
+        this.$cards = $(container).children();
         this.$cardsBackContainer = $(".cards_back_container");
         this.cardsBackImagesIds = ['_01', '_02', '_03', '_04', '_05', '_06', '_07', '_08', '_09', '_10', '_11', '_12', '_13', '_14', '_15'];
         this.$links = $(".card a");
@@ -38,7 +38,7 @@ class GameCards {
     addCardClickHandler() {
         this.removeSelectedCardsClasses();
         this.$links.on("click", this.revealCard).css("cursor", `url(images/hand_icon.png) 5 5, pointer`);
-        if (game.$windowWidth > 767) {
+        if (game.viewportWidth.matches) {
             $(".card_reverse").addClass("question_mark");
         }
     }
@@ -102,7 +102,7 @@ class GameCards {
         }
     }
     showCards(cards) {
-        if (game.$windowWidth > 767) {
+        if (game.viewportWidth.matches) {
             $(".card_reverse").addClass("question_mark");
         }
         game.$degreeOfDifficultyElement.hide();
@@ -151,4 +151,5 @@ class GameCards {
 const game = new Game($('#js-newGame')),
     gameCards = new GameCards($(".cards_container"));
 game.setGameElements();
+game.toggleTooltips();
 game.handleDegOfDiffElemButtons();
