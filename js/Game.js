@@ -159,13 +159,7 @@ class Game {
     }
     endGame(gameResult) {
         gameCards.$cardsContainer.hide();
-        switch (gameResult) {
-            case "playerWon":
-                this.showGameResult(this.$playerWonElement);
-                break;
-            case "playerLost":
-                this.showGameResult(this.$playerLostElement);
-        }
+        this.showGameResult(gameResult == "playerWon" ? this.$playerWonElement : this.$playerLostElement);
         this.gameState = 'ended';
     }
     checkGameStatus() {

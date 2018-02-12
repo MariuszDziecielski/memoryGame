@@ -68,37 +68,47 @@ class GameCards {
             $twoCards = $firstCard.add($secondCard);
             gameCards.$firstCardLink = $firstCard.find("a");
             gameCards.$secondCardLink = $secondCard.find("a");
-            if (gameCards.$firstCardLink.attr("class") == gameCards.$secondCardLink.attr("class")) {
-                setTimeout(() => {
-                    $twoCards.addClass("card_match");
-                }, 500);
-                setTimeout(() => {
-                    $twoCards.removeClass("card_match").css("visibility", "hidden");
-                    gameCards.changeCardReverseVisibility("hidden", "hidden");
-                    game.pairsLeft --;
-                    game.$pairsLeftElement.text(game.pairsLeft);
-                    game.pairsFound ++;
-                    game.$pairsFoundElement.text(game.pairsFound);
-                    game.setAttemptsDone();
-                    game.checkGameStatus();
-                }, 900);
-                setTimeout(() => {
-                    gameCards.addCardClickHandler();
-                }, 950);
-            } else {
-                setTimeout(() => {
-                    $twoCards.addClass("card_mismatch");
-                }, 500);
-                setTimeout(() => {
-                    $twoCards.removeClass("card_mismatch");
-                    gameCards.changeCardReverseVisibility("visible", "visible");
-                    game.setAttemptsDone();
-                    game.checkGameStatus();
-                }, 900);
-                setTimeout(() => {
-                    gameCards.addCardClickHandler();
-                }, 950);
-            }
+            const cardsMatch = gameCards.$firstCardLink.attr("class") == gameCards.$secondCardLink.attr("class") ? true : false,
+                queueTasks = [
+                    {
+                        duration: 400,
+                        doTask() {
+                            $twoCards.addClass(cardsMatch ? "card_match" : "card_mismatch");
+                        }
+                    },
+                    {
+                        duration: 50,
+                        doTask() {
+                            $twoCards.removeClass(cardsMatch ? "card_match" : "card_mismatch");
+                            if(cardsMatch) {
+                                $twoCards.css("visibility", "hidden");
+                                gameCards.changeCardReverseVisibility("hidden", "hidden");
+                                game.pairsLeft --;
+                                game.$pairsLeftElement.text(game.pairsLeft);
+                                game.pairsFound ++;
+                                game.$pairsFoundElement.text(game.pairsFound);
+                            } else {
+                                gameCards.changeCardReverseVisibility("visible", "visible");
+                            }
+                            game.setAttemptsDone();
+                            game.checkGameStatus();
+                        }
+                    },
+                    {
+                        duration: 50,
+                        doTask() {
+                            gameCards.addCardClickHandler();
+                        }
+                    }
+                ],
+                dequeueTasks = function()  {
+                    const task = queueTasks.shift();
+                    if (task) {
+                        task.doTask();
+                        setTimeout(dequeueTasks, task.duration);
+                    }
+                };
+            setTimeout(dequeueTasks, 500);
         }
     }
     showCards(cards) {
