@@ -1,0 +1,838 @@
+@import url("https://fonts.googleapis.com/css?family=Tillana:400,500,600,700,800&subset=latin-ext");
+/* Tooltip */
+.card_back-tooltip,
+.button-tooltip {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  border: none !important;
+  font: 600 10px 'Tillana', cursive;
+  box-shadow: none;
+  background: transparent no-repeat center/cover;
+}
+
+.card_back-tooltip {
+  background-image: url(../images/retro_reels_small_2.png);
+  width: 89px;
+  height: 80px;
+}
+
+.button-tooltip {
+  background-image: url(../images/retro_reels_medium.png);
+  padding: 0px 30px 5px;
+  width: 292px;
+  height: 77px;
+}
+
+/* Tooltip */
+body {
+  font: normal 14px "Tillana", cursive;
+  text-align: center;
+  background: url(../images/wood.jpg) no-repeat fixed center/cover;
+  overflow-x: hidden;
+  cursor: url(../images/pointer_icon.png) 5 5, auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.column {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.items-center {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.content-center {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.cards,
+footer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards {
+  margin-top: 5px;
+}
+
+.cards button {
+  font: 600 13px "Tillana", cursive;
+  border: none;
+  background: url(../images/retro_reels_small.png) no-repeat center/cover;
+  color: #1a1600;
+  width: 260px;
+  height: 40px;
+  margin: 20px 0;
+  cursor: url(../images/hand_icon.png) 5 5, pointer;
+  outline: none;
+  padding: 0;
+}
+
+.cards button:hover {
+  color: #fffbe6;
+  transition: color 0.1s;
+}
+
+.cards .logo {
+  background: url(../images/wooden_sign.png) no-repeat center/contain;
+  height: 470px;
+  padding: 0 15px 162px 0;
+}
+
+.cards .logo h1,
+.cards .logo h2,
+.cards .logo h3 {
+  margin: 0;
+  color: #fffbe6;
+}
+
+.cards .logo h1 {
+  font-size: 36px;
+}
+
+.cards .logo h2 {
+  font-size: 29px;
+  color: #ffe866;
+}
+
+.cards .logo h3 {
+  font-size: 16px;
+}
+
+.cards #js-newGame,
+.cards #js-degree_of_difficulty {
+  margin: 70px auto;
+  background: url(../images/retro_reels_vertical.png) no-repeat center/contain;
+  width: 600px;
+}
+
+.cards #js-newGame {
+  padding: 0 120px;
+  height: 760px;
+}
+
+.cards #js-newGame h2 {
+  color: #fffbe6;
+}
+
+.cards #js-newGame p {
+  color: #1a1600;
+  font-weight: 700;
+}
+
+.cards #js-newGame h3 {
+  color: #fffbe6;
+}
+
+.cards #js-cards_back,
+.cards #js-game_data,
+.cards #js-player_won,
+.cards #js-player_lost {
+  margin: 70px auto;
+  padding: 0 120px;
+  width: 600px;
+  background: url(../images/retro_reels_horizontal.png) no-repeat center/contain;
+}
+
+.cards #js-cards_back {
+  height: 390px;
+  color: #fffbe6;
+}
+
+.cards #js-cards_back p {
+  color: #ffe866;
+  font-weight: 700;
+}
+
+.cards .cards_back_container,
+.cards .cards_container {
+  color: #fffbe6;
+  flex-wrap: wrap;
+}
+
+.cards .cards_back_container {
+  margin: 0 auto 70px;
+  width: 578px;
+  height: 620px;
+  padding: 0 105px;
+  background: url(../images/retro_reels_vertical.png) no-repeat center/contain;
+  align-content: center;
+}
+
+.cards .cards_back_container .card_back {
+  cursor: url(../images/hand_icon.png) 5 5, pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  width: 54px;
+  height: 76px;
+  box-shadow: 7px 10px 34px -4px rgba(0, 0, 0, 0.75);
+  background: transparent no-repeat center/cover;
+}
+
+.cards .cards_back_container .card_back:hover {
+  box-shadow: 18px 21px 37px -7px rgba(0, 0, 0, 0.75);
+  transform: translate(0, -2px);
+  transition: all 0.4s ease;
+}
+
+.cards .cards_back_container #_01 {
+  background-image: url(../images/cards_back/card_back_01.png);
+}
+
+.cards .cards_back_container #_02 {
+  background-image: url(../images/cards_back/card_back_02.png);
+}
+
+.cards .cards_back_container #_03 {
+  background-image: url(../images/cards_back/card_back_03.png);
+}
+
+.cards .cards_back_container #_04 {
+  background-image: url(../images/cards_back/card_back_04.png);
+}
+
+.cards .cards_back_container #_05 {
+  background-image: url(../images/cards_back/card_back_05.png);
+}
+
+.cards .cards_back_container #_06 {
+  background-image: url(../images/cards_back/card_back_06.png);
+}
+
+.cards .cards_back_container #_07 {
+  background-image: url(../images/cards_back/card_back_07.png);
+}
+
+.cards .cards_back_container #_08 {
+  background-image: url(../images/cards_back/card_back_08.png);
+}
+
+.cards .cards_back_container #_09 {
+  background-image: url(../images/cards_back/card_back_09.png);
+}
+
+.cards .cards_back_container #_10 {
+  background-image: url(../images/cards_back/card_back_10.png);
+}
+
+.cards .cards_back_container #_11 {
+  background-image: url(../images/cards_back/card_back_11.png);
+}
+
+.cards .cards_back_container #_12 {
+  background-image: url(../images/cards_back/card_back_12.png);
+}
+
+.cards .cards_back_container #_13 {
+  background-image: url(../images/cards_back/card_back_13.png);
+}
+
+.cards .cards_back_container #_14 {
+  background-image: url(../images/cards_back/card_back_14.png);
+}
+
+.cards .cards_back_container #_15 {
+  background-image: url(../images/cards_back/card_back_15.png);
+}
+
+.cards .cards_back_container #_16 {
+  background-image: url(../images/cards_back/card_back_16.png);
+}
+
+.cards #js-degree_of_difficulty {
+  padding: 0 170px;
+  height: 620px;
+  color: #fffbe6;
+}
+
+.cards #js-degree_of_difficulty h2 {
+  margin-bottom: 40px;
+}
+
+.cards #js-game_data {
+  height: 320px;
+  color: #fffbe6;
+}
+
+.cards #js-game_data h3 {
+  margin: 0;
+}
+
+.cards #js-game_data h3 span {
+  color: #ffe866;
+}
+
+.cards #js-game_data h3 .warning {
+  color: #ff3300;
+}
+
+.cards #js-player_won,
+.cards #js-player_lost {
+  height: 420px;
+  color: #ffe866;
+}
+
+.cards #js-player_won p,
+.cards #js-player_lost p {
+  font-weight: 700;
+}
+
+.cards .cards_container {
+  margin: 0 auto 90px;
+}
+
+.cards .cards_container .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  width: 54px;
+  height: 76px;
+  position: relative;
+  box-shadow: 7px 10px 34px -4px rgba(0, 0, 0, 0.75);
+  transform: none;
+  background: transparent no-repeat center/cover;
+}
+
+.cards .cards_container .card:hover {
+  box-shadow: 18px 21px 37px -7px rgba(0, 0, 0, 0.75);
+  transform: translate(0, -2px);
+  transition: all 0.4s ease;
+}
+
+.cards .cards_container .card a {
+  cursor: url(../images/hand_icon.png) 5 5, pointer;
+  font-size: 20px;
+}
+
+.cards .cards_container .card a .card_reverse {
+  width: 54px;
+  height: 76px;
+  box-shadow: 7px 10px 34px -4px rgba(0, 0, 0, 0.75);
+}
+
+.cards .cards_container .card a .question_mark:hover:before {
+  content: url(../images/question_mark.png);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cards .cards_container .firstCard,
+.cards .cards_container .secondCard {
+  box-shadow: 18px 21px 37px -7px rgba(0, 0, 0, 0.75);
+  transform: translate(0, -2px);
+}
+
+.cards .cards_container .card_match:before,
+.cards .cards_container .card_mismatch:before {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cards .cards_container .card_match:before {
+  content: url(../images/yes_mark.png);
+}
+
+.cards .cards_container .card_mismatch:before {
+  content: url(../images/no_mark.png);
+}
+
+.cards .cards_container ._2c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/2_of_clubs.svg/83px-2_of_clubs.svg.png);
+}
+
+.cards .cards_container ._3c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/3_of_clubs.svg/83px-3_of_clubs.svg.png);
+}
+
+.cards .cards_container ._4c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/4_of_clubs.svg/83px-4_of_clubs.svg.png);
+}
+
+.cards .cards_container ._5c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/5_of_clubs.svg/83px-5_of_clubs.svg.png);
+}
+
+.cards .cards_container ._6c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/6_of_clubs.svg/83px-6_of_clubs.svg.png);
+}
+
+.cards .cards_container ._7c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/7_of_clubs.svg/83px-7_of_clubs.svg.png);
+}
+
+.cards .cards_container ._8c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/8_of_clubs.svg/83px-8_of_clubs.svg.png);
+}
+
+.cards .cards_container ._9c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/9_of_clubs.svg/83px-9_of_clubs.svg.png);
+}
+
+.cards .cards_container ._10c {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/10_of_clubs.svg/83px-10_of_clubs.svg.png);
+}
+
+.cards .cards_container ._jc {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Jack_of_clubs2.svg/83px-Jack_of_clubs2.svg.png);
+}
+
+.cards .cards_container ._qc {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_clubs2.svg/83px-Queen_of_clubs2.svg.png);
+}
+
+.cards .cards_container ._kc {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/King_of_clubs2.svg/83px-King_of_clubs2.svg.png);
+}
+
+.cards .cards_container ._ac {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ace_of_clubs.svg/83px-Ace_of_clubs.svg.png);
+}
+
+.cards .cards_container ._2d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/2_of_diamonds.svg/83px-2_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._3d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/3_of_diamonds.svg/83px-3_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._4d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/4_of_diamonds.svg/83px-4_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._5d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/5_of_diamonds.svg/83px-5_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._6d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/6_of_diamonds.svg/83px-6_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._7d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/7_of_diamonds.svg/83px-7_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._8d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/8_of_diamonds.svg/83px-8_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._9d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/9_of_diamonds.svg/83px-9_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._10d {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/10_of_diamonds.svg/83px-10_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._jd {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Jack_of_diamonds2.svg/83px-Jack_of_diamonds2.svg.png);
+}
+
+.cards .cards_container ._qd {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Queen_of_diamonds2.svg/83px-Queen_of_diamonds2.svg.png);
+}
+
+.cards .cards_container ._kd {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/King_of_diamonds2.svg/83px-King_of_diamonds2.svg.png);
+}
+
+.cards .cards_container ._ad {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ace_of_diamonds.svg/83px-Ace_of_diamonds.svg.png);
+}
+
+.cards .cards_container ._2h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/2_of_hearts.svg/83px-2_of_hearts.svg.png);
+}
+
+.cards .cards_container ._3h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/3_of_hearts.svg/83px-3_of_hearts.svg.png);
+}
+
+.cards .cards_container ._4h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/4_of_hearts.svg/83px-4_of_hearts.svg.png);
+}
+
+.cards .cards_container ._5h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/5_of_hearts.svg/83px-5_of_hearts.svg.png);
+}
+
+.cards .cards_container ._6h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/6_of_hearts.svg/83px-6_of_hearts.svg.png);
+}
+
+.cards .cards_container ._7h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/7_of_hearts.svg/83px-7_of_hearts.svg.png);
+}
+
+.cards .cards_container ._8h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/8_of_hearts.svg/83px-8_of_hearts.svg.png);
+}
+
+.cards .cards_container ._9h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/9_of_hearts.svg/83px-9_of_hearts.svg.png);
+}
+
+.cards .cards_container ._10h {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/10_of_hearts.svg/83px-10_of_hearts.svg.png);
+}
+
+.cards .cards_container ._jh {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jack_of_hearts2.svg/83px-Jack_of_hearts2.svg.png);
+}
+
+.cards .cards_container ._qh {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Queen_of_hearts2.svg/83px-Queen_of_hearts2.svg.png);
+}
+
+.cards .cards_container ._kh {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/King_of_hearts2.svg/83px-King_of_hearts2.svg.png);
+}
+
+.cards .cards_container ._ah {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Ace_of_hearts.svg/83px-Ace_of_hearts.svg.png);
+}
+
+.cards .cards_container ._2s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/2_of_spades.svg/83px-2_of_spades.svg.png);
+}
+
+.cards .cards_container ._3s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/3_of_spades.svg/83px-3_of_spades.svg.png);
+}
+
+.cards .cards_container ._4s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/4_of_spades.svg/83px-4_of_spades.svg.png);
+}
+
+.cards .cards_container ._5s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/5_of_spades.svg/83px-5_of_spades.svg.png);
+}
+
+.cards .cards_container ._6s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/6_of_spades.svg/83px-6_of_spades.svg.png);
+}
+
+.cards .cards_container ._7s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/7_of_spades.svg/83px-7_of_spades.svg.png);
+}
+
+.cards .cards_container ._8s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/8_of_spades.svg/83px-8_of_spades.svg.png);
+}
+
+.cards .cards_container ._9s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/9_of_spades.svg/83px-9_of_spades.svg.png);
+}
+
+.cards .cards_container ._10s {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/10_of_spades.svg/83px-10_of_spades.svg.png);
+}
+
+.cards .cards_container ._js {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Jack_of_spades2.svg/83px-Jack_of_spades2.svg.png);
+}
+
+.cards .cards_container ._qs {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Queen_of_spades2.svg/83px-Queen_of_spades2.svg.png);
+}
+
+.cards .cards_container ._ks {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/King_of_spades2.svg/83px-King_of_spades2.svg.png);
+}
+
+.cards .cards_container ._as {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ace_of_spades2.svg/83px-Ace_of_spades2.svg.png);
+}
+
+.cards .cards_container ._bj {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Black_joker.svg/83px-Black_joker.svg.png);
+}
+
+.cards .cards_container ._rj {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Red_joker.svg/83px-Red_joker.svg.png);
+}
+
+.cards .easy {
+  width: 500px;
+}
+
+.cards .medium {
+  width: 600px;
+}
+
+.cards .hard {
+  width: 700px;
+}
+
+.cards .extreme {
+  width: 800px;
+}
+
+.cards .js-restartGameBtn {
+  margin-right: 30px;
+}
+
+.cards .js-restartGameBtn,
+.cards .js-finishGameBtn {
+  margin-bottom: 70px;
+}
+
+footer {
+  background: url(../images/wooden_sign_2.png) no-repeat center/contain;
+  height: 352px;
+  padding-top: 65px;
+  color: #1a1600;
+  font-weight: 600;
+  margin-bottom: 105px;
+}
+
+/* Media queries */
+/* For computers: */
+@media (max-width: 992px) {
+  .cards,
+  footer {
+    width: 100%;
+  }
+  .cards .extreme {
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+/* For tablets: */
+@media (max-width: 768px) {
+  body {
+    transform: rotate(-0.2deg);
+  }
+  .cards button {
+    width: 240px;
+    height: 37px;
+  }
+  .cards .logo {
+    height: 60vw;
+    padding: 0 2vw 20vw 0;
+  }
+  .cards .logo h1 {
+    font-size: 5vw;
+  }
+  .cards .logo h2 {
+    font-size: 4vw;
+  }
+  .cards .logo h3 {
+    font-size: 2.3vw;
+  }
+  .cards #js-newGame,
+  .cards #js-degree_of_difficulty {
+    height: 95vw;
+    padding: 0 20vw;
+  }
+  .cards #js-newGame {
+    padding: 8vw 28vw;
+    width: auto;
+    height: 100%;
+    margin: 10vw 0;
+  }
+  .cards #js-newGame h2 {
+    font-size: 1.2em;
+  }
+  .cards #js-newGame p {
+    font-size: 12px;
+  }
+  .cards #js-newGame h3 {
+    font-size: 1em;
+  }
+  .cards #js-cards_back,
+  .cards #js-player_won,
+  .cards #js-player_lost {
+    padding: 0 70px;
+    width: 440px;
+    height: 340px;
+  }
+  .cards #js-cards_back h2,
+  .cards #js-player_won h2,
+  .cards #js-player_lost h2 {
+    font-size: 1.2em;
+  }
+  .cards #js-cards_back p,
+  .cards #js-player_won p,
+  .cards #js-player_lost p {
+    font-size: 0.9em;
+  }
+  .cards .cards_back_container {
+    height: 87vw;
+    padding: 0 17vw;
+  }
+  .cards #js-degree_of_difficulty {
+    height: 520px;
+  }
+  .cards #js-degree_of_difficulty h2 {
+    font-size: 1.2em;
+    padding: 0 60px;
+  }
+  .cards #js-degree_of_difficulty button {
+    margin: 15px 0;
+  }
+  .cards #js-game_data {
+    height: 300px;
+  }
+  .cards #js-game_data h3 {
+    font-size: 1.1em;
+  }
+  .cards .easy,
+  .cards .medium,
+  .cards .hard,
+  .cards .extreme {
+    width: 100%;
+  }
+  .cards .easy {
+    max-width: 500px;
+  }
+  .cards .medium {
+    max-width: 600px;
+  }
+  .cards .hard {
+    max-width: 700px;
+  }
+  .cards .extreme {
+    max-width: 800px;
+  }
+  footer {
+    font-size: 0.9em;
+    height: 55vw;
+    max-height: 330px;
+    padding-top: 10vw;
+  }
+}
+
+/* For smart phones: */
+@media (max-width: 640px) {
+  .cards button {
+    width: 230px;
+    height: 35px;
+  }
+  .cards #js-newGame,
+  .cards #js-degree_of_difficulty,
+  .cards .cards_back_container,
+  .cards #js-game_data {
+    width: auto;
+    height: 100%;
+    margin: 10vw 0;
+  }
+  .cards #js-newGame {
+    padding: 25vw 15vw;
+    background-size: cover;
+  }
+  .cards #js-degree_of_difficulty {
+    padding: 15vw 19vw;
+  }
+  .cards .cards_back_container {
+    padding: 30vw 15vw;
+    background-size: cover;
+  }
+  .cards #js-game_data {
+    padding: 15vw 19vw;
+  }
+  .cards .cards_container {
+    margin: 0 auto 70px;
+  }
+  .cards .js-restartGameBtn,
+  .cards .js-finishGameBtn {
+    display: block;
+    margin: 0 auto;
+  }
+  .cards .js-restartGameBtn {
+    margin-bottom: 50px;
+  }
+  .cards .js-finishGameBtn {
+    margin-bottom: 70px;
+  }
+}
+
+/* For smaller smart phones: */
+@media (max-width: 480px) {
+  .cards button {
+    font-size: 0.9em;
+    max-width: 220px;
+    max-height: 34px;
+    width: 80vw;
+    height: 12vw;
+    margin: 15px 0;
+  }
+  .cards .logo {
+    max-height: 290px;
+  }
+  .cards #js-newGame,
+  .cards #js-cards_back,
+  .cards #js-degree_of_difficulty,
+  .cards #js-game_data,
+  .cards #js-player_won,
+  .cards #js-player_lost {
+    padding: 15vw 12vw;
+    width: auto;
+    height: 100%;
+    margin: 10vw 0;
+    background-size: cover;
+  }
+  .cards #js-newGame h2 {
+    font-size: 1.1em;
+  }
+  .cards #js-newGame p {
+    font-size: 12px;
+  }
+  .cards #js-newGame h3 {
+    font-size: 0.9em;
+  }
+  .cards .cards_back_container {
+    width: 100%;
+  }
+  .cards #js-degree_of_difficulty {
+    width: auto;
+    height: 100%;
+    margin: 10vw 0;
+  }
+  .cards #js-degree_of_difficulty h2 {
+    font-size: 1.1em;
+    padding: 0 30px;
+  }
+  .cards #js-game_data h3 {
+    font-size: 0.9em;
+  }
+  .cards #js-player_won h2,
+  .cards #js-player_lost h2 {
+    font-size: 1.1em;
+  }
+  .cards #js-player_won p,
+  .cards #js-player_lost p {
+    font-size: 0.86em;
+  }
+  footer {
+    font-size: 0.78em;
+    height: 70vw;
+    max-height: 270px;
+    padding-top: 13vw;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

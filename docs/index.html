@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Gra memory!">
+        <meta name="author" content="Mariusz Dzięcielski">
+        <title>Match The Cards&reg; Memory Game</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <section class="cards">
+            <div class="logo flex content-center column">
+                <h1>
+                    Match The Cards&reg;
+                </h1>
+                <h2>
+                    Memory Game
+                </h2>
+                <h3>
+                    Sprawdź, jak dobra jest Twoja pamięć!
+                </h3>
+            </div>
+            <div id="js-newGame" class="flex content-center column items-center">
+                <h2>Witaj w grze Match The Cards&reg;!</h2>
+                <p>Zasady gry są oparte na popularnej angielskiej grze Memory (zwanej również Concentration albo Pairs).</p>
+                <p>Gracz odsłania 2 karty - jeżeli są one identyczne to karty te zostają usunięte, jeżeli nie, to zostaną ponownie odwrócone. Celem gry jest odnalezienie wszystkich par takich samych kart. Każda próba (odsłonięcie 2 kart) jest liczona. Gracz wygrywa, jeżeli odsłoni wszystkie pary zanim skończy się dozwolona liczba prób (różna w zależności od wybranego poziomu trudności).</p>
+                <p>Gra stanowi bardzo dobre ćwiczenie dla osób, które chciałyby poprawić swoją pamięć!</p>
+                <h3>Życzę powodzenia!</h3>
+                <button type="button" id="js-newGameBtn" title="Wybierz rewers kart oraz poziom trudności i rozpocznij grę!">Rozpocznij nową grę!</button>
+            </div>
+            <div id="js-cards_back" class="flex content-center column items-center">
+                <h2>Wybierz rewers kart</h2>
+                <p>Kliknij na obrazek, aby wybrać rewers kart w grze. Wybranie ostatniego obrazka (ze znakiem zapytania) spowoduje losowy wybór rewersu kart.</p>
+            </div>
+            <div class="cards_back_container flex content-center">
+                <div id="_01" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_02" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_03" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_04" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_05" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_06" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_07" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_08" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_09" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_10" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_11" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_12" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_13" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_14" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_15" class="card_back" title="Wybierz rewers!"></div>
+                <div id="_16" class="card_back" title="Wybierz losowy rewers!"></div>
+            </div>
+            <div id="js-degree_of_difficulty" class="flex content-center column items-center">
+                <h2>Wybierz poziom trudności gry</h2>
+                <button type="button" title="Poziom łatwy (1 kolor - trefl)">Poziom łatwy</button>
+                <button type="button" title="Poziom średni (2 kolory - trefl i karo)">Poziom średni</button>
+                <button type="button" title="Poziom trudny (3 kolory - trefl, karo i kier)">Poziom trudny</button>
+                <button type="button" title="Poziom ekstremalny (4 kolory - trefl, karo, kier i pik oraz 2 dżokery)">Poziom ekstremalny</button>
+            </div>
+            <div id="js-game_data" class="flex content-center column items-center">
+                <h3>Poziom trudności: <span id="js-game_level"></span></h3>
+                <h3>Pozostało par: <span id="js-pairs_left"></span></h3>
+                <h3>Odkryte pary: <span id="js-pairs_found">0</span></h3>
+                <h3>Liczba prób: <span id="js-attempts_done">0</span> / <span id="js-attempts_left"></span>
+                </h3>
+            </div>
+            <div id="js-player_won" class="flex content-center column items-center">
+                <h2>Gratulacje! Udało Ci się odkryć wszystkie pary i wygrałeś!</h2>
+                <p>Twoja pamięć jest wyśmienita!</p>
+                <button type="button" class="js-playAgainBtn">Zagraj jeszcze raz!</button>
+            </div>
+            <div id="js-player_lost" class="flex content-center column items-center">
+                <h2>Niestety nie udało Ci się odkryć wszystkich par i przegrałeś!</h2>
+                <p>Musisz jeszcze trochę poćwiczyć swoją pamięć!</p>
+                <button type="button" class="js-playAgainBtn">Zagraj jeszcze raz!</button>
+            </div>
+            <div class="cards_container flex content-center">
+                <!-- Easy level -->
+                <div class="card _2c easy_level">
+                    <a href="" class="_2c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _2c easy_level">
+                    <a href="" class="_2c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3c easy_level">
+                    <a href="" class="_3c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3c easy_level">
+                    <a href="" class="_3c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4c easy_level">
+                    <a href="" class="_4c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4c easy_level">
+                    <a href="" class="_4c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5c easy_level">
+                    <a href="" class="_5c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5c easy_level">
+                    <a href="" class="_5c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6c easy_level">
+                    <a href="" class="_6c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6c easy_level">
+                    <a href="" class="_6c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7c easy_level">
+                    <a href="" class="_7c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7c easy_level">
+                    <a href="" class="_7c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8c easy_level">
+                    <a href="" class="_8c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8c easy_level">
+                    <a href="" class="_8c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9c easy_level">
+                    <a href="" class="_9c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9c easy_level">
+                    <a href="" class="_9c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10c easy_level">
+                    <a href="" class="_10c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10c easy_level">
+                    <a href="" class="_10c_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _jc easy_level">
+                    <a href="" class="_jc_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _jc easy_level">
+                    <a href="" class="_jc_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qc easy_level">
+                    <a href="" class="_qc_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qc easy_level">
+                    <a href="" class="_qc_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _kc easy_level">
+                    <a href="" class="_kc_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _kc easy_level">
+                    <a href="" class="_kc_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ac easy_level">
+                    <a href="" class="_ac_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ac easy_level">
+                    <a href="" class="_ac_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <!-- Medium level -->
+                <div class="card _2d medium_level">
+                    <a href="" class="_2d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _2d medium_level">
+                    <a href="" class="_2d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3d medium_level">
+                    <a href="" class="_3d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3d medium_level">
+                    <a href="" class="_3d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4d medium_level">
+                    <a href="" class="_4d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4d medium_level">
+                    <a href="" class="_4d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5d medium_level">
+                    <a href="" class="_5d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5d medium_level">
+                    <a href="" class="_5d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6d medium_level">
+                    <a href="" class="_6d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6d medium_level">
+                    <a href="" class="_6d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7d medium_level">
+                    <a href="" class="_7d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7d medium_level">
+                    <a href="" class="_7d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8d medium_level">
+                    <a href="" class="_8d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8d medium_level">
+                    <a href="" class="_8d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9d medium_level">
+                    <a href="" class="_9d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9d medium_level">
+                    <a href="" class="_9d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10d medium_level">
+                    <a href="" class="_10d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10d medium_level">
+                    <a href="" class="_10d_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _jd medium_level">
+                    <a href="" class="_jd_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _jd medium_level">
+                    <a href="" class="_jd_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qd medium_level">
+                    <a href="" class="_qd_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qd medium_level">
+                    <a href="" class="_qd_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _kd medium_level">
+                    <a href="" class="_kd_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _kd medium_level">
+                    <a href="" class="_kd_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ad medium_level">
+                    <a href="" class="_ad_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ad medium_level">
+                    <a href="" class="_ad_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <!-- Hard level -->
+                <div class="card _2h hard_level">
+                    <a href="" class="_2h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _2h hard_level">
+                    <a href="" class="_2h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3h hard_level">
+                    <a href="" class="_3h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3h hard_level">
+                    <a href="" class="_3h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4h hard_level">
+                    <a href="" class="_4h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4h hard_level">
+                    <a href="" class="_4h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5h hard_level">
+                    <a href="" class="_5h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5h hard_level">
+                    <a href="" class="_5h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6h hard_level">
+                    <a href="" class="_6h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6h hard_level">
+                    <a href="" class="_6h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7h hard_level">
+                    <a href="" class="_7h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7h hard_level">
+                    <a href="" class="_7h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8h hard_level">
+                    <a href="" class="_8h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8h hard_level">
+                    <a href="" class="_8h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9h hard_level">
+                    <a href="" class="_9h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9h hard_level">
+                    <a href="" class="_9h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10h hard_level">
+                    <a href="" class="_10h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10h hard_level">
+                    <a href="" class="_10h_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _jh hard_level">
+                    <a href="" class="_jh_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _jh hard_level">
+                    <a href="" class="_jh_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qh hard_level">
+                    <a href="" class="_qh_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qh hard_level">
+                    <a href="" class="_qh_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _kh hard_level">
+                    <a href="" class="_kh_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _kh hard_level">
+                    <a href="" class="_kh_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ah hard_level">
+                    <a href="" class="_ah_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ah hard_level">
+                    <a href="" class="_ah_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <!-- Extreme level -->
+                <div class="card _2s extreme_level">
+                    <a href="" class="_2s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _2s extreme_level">
+                    <a href="" class="_2s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3s extreme_level">
+                    <a href="" class="_3s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _3s extreme_level">
+                    <a href="" class="_3s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4s extreme_level">
+                    <a href="" class="_4s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _4s extreme_level">
+                    <a href="" class="_4s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5s extreme_level">
+                    <a href="" class="_5s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _5s extreme_level">
+                    <a href="" class="_5s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6s extreme_level">
+                    <a href="" class="_6s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _6s extreme_level">
+                    <a href="" class="_6s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7s extreme_level">
+                    <a href="" class="_7s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _7s extreme_level">
+                    <a href="" class="_7s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8s extreme_level">
+                    <a href="" class="_8s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _8s extreme_level">
+                    <a href="" class="_8s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9s extreme_level">
+                    <a href="" class="_9s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _9s extreme_level">
+                    <a href="" class="_9s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10s extreme_level">
+                    <a href="" class="_10s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _10s extreme_level">
+                    <a href="" class="_10s_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _js extreme_level">
+                    <a href="" class="_js_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _js extreme_level">
+                    <a href="" class="_js_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qs extreme_level">
+                    <a href="" class="_qs_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _qs extreme_level">
+                    <a href="" class="_qs_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ks extreme_level">
+                    <a href="" class="_ks_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _ks extreme_level">
+                    <a href="" class="_ks_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _as extreme_level">
+                    <a href="" class="_as_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _as extreme_level">
+                    <a href="" class="_as_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _bj extreme_level">
+                    <a href="" class="_bj_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _bj extreme_level">
+                    <a href="" class="_bj_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _rj extreme_level">
+                    <a href="" class="_rj_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+                <div class="card _rj extreme_level">
+                    <a href="" class="_rj_">
+                        <div class="card_reverse"></div>
+                    </a>
+                </div>
+            </div>
+            <button type="button" class="js-restartGameBtn" title="Rozpocznij grę od nowa (ten sam poziom trudności)!">Zrestartuj grę!</button>
+            <button type="button" class="js-finishGameBtn" title="Wyjdź z gry (powrót do ekranu początkowego)!">Zakończ grę!</button>
+        </section>
+        <footer>
+            <div class="container flex content-center">
+                <div class="copyright">
+                    Copyright &copy; 2017 Mariusz Dzięcielski
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="js/Game.js"></script>
+        <script src="js/GameCards.js"></script>
+    </body>
+</html>
